@@ -2,7 +2,7 @@ let item = 0;
 const max = 80;
 
 function proxImagem( img ){
-fetch(`img/${img}.png`)
+fetch(`IMGs/${img}.png`)
     .then(resp => resp.blob())
     .then(blob => {
         const imageObjectURL = URL.createObjectURL(blob);
