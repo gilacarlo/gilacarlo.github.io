@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>garrafa de leite</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="caixa">
+        <div class="camada1"></div>
+        <div class="separador"></div>
+        <div class="camada2"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $('.caixa').on('mousemove', function(event) {
+        $('.separador').css('bottom', -event.pageY + 800 + 'px');
+         });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background: #03a9f4;
+}
+.caixa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.caixa .camada1,
+.caixa .camada2
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.caixa .camada1
+{
+    background: url(gcheia-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.caixa .camada2
+{
+    background: url(gvazia-removebg-preview-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.separador
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #03a9f4;
+}
