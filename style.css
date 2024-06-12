@@ -1,4 +1,7 @@
-.gay{
+.class{
     height: 30px;
     width: 30px;
+    background-color: aqua;
+    border-radius: 5px;
+    border: solid black 1px;
 }
