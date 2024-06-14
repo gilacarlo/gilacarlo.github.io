@@ -1,22 +1,123 @@
 .class{
     height: 50px;
     width: 200px;
-    background-color: aqua;
+    background: radial-gradient(circle, #3f53aa, #080846);
     border-radius: 5px;
     border: solid black 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .centrau{
-    height: 1000px;
+    height: 800px;
     width: 80vw;
-    margin-left: 20vw;
+    margin-left: 10vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     justify-self: center;
-    background-color: rgb(246, 255, 255);
+    background: 
+        linear-gradient(to bottom, #ff0000, #0000ff), /* gradiente linear */
+        radial-gradient(circle, #ffffff 30%, transparent 70%); /* gradiente radial */
+    background-blend-mode: multiply; /* modo de mistura para combinar os gradientes */
+}
+p{
+    border: 2px solid #000;
+    border-radius: 50%; 
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #ff0000, #0000ff);
+    color: #000;
+}
+p a{
+    color: white;
+}
+
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+
+    transition: transform 1s ease ; 
+    transform: rotate(130deg);
+}
+
+.btn:hover {
+    background-color: #2980b9; /* Cor de fundo alterada ao passar o mouse */
+    
+    animation: identifier 0.5s infinite;
+}
+
+@keyframes example {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes identifier {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.btn:active {
+    animation: example 0.3s ease; /* Animação quando o botão é clicado */
+}
+
+
+.container {
+    width: 300px;
+    height: 200px;
+    background-image: url('background.jpg'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    padding: 20px;
+    color: #fff;
+    filter: grayscale(100%); /* Transforma o conteúdo em escala de cinza */
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo com transparência */
+    backdrop-filter: blur(10px); /* Desfoque do fundo */
+}
+
+.container2 {
+    width: 300px;
+    height: 200px;
+    overflow-y: scroll; /* Permite rolar o conteúdo */
+}
+
+.sticky-element {
+    position: sticky;
+    top: 20px; /* A partir de onde ele fica fixo */
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.content2 {
+    padding: 20px;
 }
