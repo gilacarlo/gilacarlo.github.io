@@ -176,9 +176,9 @@
             document.querySelectorAll('.conteudo_divisaoPrincipail3')[0].innerHTML += `<div class="noticias_da_direita"> <div class="noticias_esquerda2"><img src="${list_of_news["noticias_direita"][i]["img"]}" alt=""></div> <div class="noticias_direita2">${C_D_C_D}</div> </div>`;
         }
 
-        // window.onload = function(){
-        //     Muda_header_conteudo2(0);
-        // }
+        window.onload = function(){
+            Muda_header_conteudo2(0);
+        }
         function Muda_header_conteudo2(index){
             // console.log(index)
             const allHeaders = document.querySelectorAll('.header_conteudo2_p'); 
