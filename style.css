@@ -62,6 +62,7 @@ p{
     justify-content: center;
     background: linear-gradient(to bottom, #a1ffef, #3a3adf);
     color: #000000;
+    font-size: 15px;
 }
 p a{
     color: white;
@@ -79,13 +80,14 @@ p a{
     transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
 
     transition: transform 1s ease ; 
-    transform: rotate(130deg);
+    /* transform: rotate(130deg); */
+    animation: identifier 6.5s infinite;
 }
 
 .btn:hover {
     background-color: #2980b9; /* Cor de fundo alterada ao passar o mouse */
     
-    animation: identifier 0.5s infinite;
+
 }
 
 @keyframes example {
