@@ -4,6 +4,7 @@
 }
 .info100{
     height: 150px;
+    width: 600px;
 }
 .info0{
     display: flex;
@@ -33,19 +34,19 @@
     border-radius: 50%;
 }
 .trabais{
-    min-height: 200px;
+    min-height: 500px;
     width: 650px;
     background-color: #00000080;
     color: white;
     border-radius: 5px;
     border: 1px solid black;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     justify-content: center;
 }
 .info{
-    height: auto;
+    min-height: 300px;
     width: 650px;
     background-color: #00000080;
     color: white;
@@ -57,8 +58,8 @@
     justify-content: space-around;
 }
 .class{
-    height: 60px;
-    width: 150px;
+    height: 80px;
+    width: 300px;
     background: radial-gradient(circle, #223bac, #080846);
     border-radius: 5px;
     border: solid black 1px;
@@ -75,21 +76,22 @@
     color: white;
 }
 .centrau{
+    /* padding-top: 50px; */
     height: 100vh;
     width: 100vw;
     position: fixed;
     display: flex;
-    overflow-y: scroll;
+    overflow-y: auto;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     justify-self: center;
     background: 
-        linear-gradient(to bottom, #ff0000, #6200ff), /* gradiente linear */
+        linear-gradient(to bottom, #ff3300, #6200ff), /* gradiente linear */
         radial-gradient(circle, #8a8a8a 30%, transparent 70%); /* gradiente radial */
     background-blend-mode: multiply; /* modo de mistura para combinar os gradientes */
 }
-p{
+p, button{
     border: 2px solid #000;
     border-radius: 94% 70% 13% 65% / 42% 70% 89% 33% ; 
     height: 50px;
@@ -114,24 +116,23 @@ p a{
 
 
 .btn {
-    padding: 10px 20px;
+    /* padding: 10px 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
     background-color: #3498db;
     color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+    border-radius: 5px; */
+    transition: background-color 0.9s ease; /* Transição suave na cor de fundo */
 
     transition: transform 1s ease ; 
     /* transform: rotate(130deg); */
-    animation: identifier 6.5s infinite;
+    animation: identifier 2.6s infinite;
 }
 
 .btn:hover {
-    background-color: #2980b9; /* Cor de fundo alterada ao passar o mouse */
+    background: linear-gradient(to bottom, #79c5b8, #3535c4);
     
-
 }
 
 @keyframes example {
@@ -140,8 +141,11 @@ p a{
     100% { transform: scale(1); }
 }
 @keyframes identifier {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    /* 0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);} */
+    33% {border-radius: 34% 49% 45% 12% / 30% 86% 34% 73%}
+    66% {border-radius: 57% 78% 90% 35% / 24% 78% 20% 50%}
+    100% {border-radius: 94% 70% 13% 65% / 42% 70% 89% 33%}
 }
 
 .btn:active {
@@ -149,45 +153,30 @@ p a{
 }
 
 
-.container {
-    width: 300px;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-
-}
-
-.content {
-    padding: 20px;
-    color: #fff;
-    filter: grayscale(100%); /* Transforma o conteúdo em escala de cinza */
-}
-
-/* .container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    backdrop-filter: blur(10px);
-} */
 
 .container2 {
-    width: 300px;
-    height: 200px;
-    overflow-y: scroll; /* Permite rolar o conteúdo */
+    overflow-y: hidden;
+    /* overflow-x: hidden; */
+}
+.container2:hover{
+    overflow-y: scroll;
 }
 
 .sticky-element {
+    align-self: center;
     position: sticky;
-    top: 20px; /* A partir de onde ele fica fixo */
-    background-color: #f1f1f1;
+    top: 20px;
+    left: 20px;
+    height: 20px;
+    width: 500px;
+    background-color: #0000006e;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 3px solid #000000a4;
+    text-align: center;
 }
 
 .content2 {
-    padding: 20px;
+    padding-top: 120px;
+    width: auto;
+    height: 100%;
 }
