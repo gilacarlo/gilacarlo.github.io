@@ -2,7 +2,9 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
+
 .info100{
     height: 150px;
     width: 600px;
@@ -43,9 +45,11 @@
     border-radius: 5px;
     border: 1px solid black;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .info{
     min-height: 300px;
@@ -58,6 +62,8 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .class{
     height: 180px;
@@ -74,7 +80,11 @@
     font-size: 24px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-family: "Roboto", sans-serif;
 }
+
 .centrau a{
     color: white;
 }
@@ -94,7 +104,7 @@
         radial-gradient(circle, #8a8a8a 30%, transparent 70%); /* gradiente radial */
     background-blend-mode: multiply; /* modo de mistura para combinar os gradientes */
 }
-p, button{
+button{
     border: 2px solid #000;
     border-radius: 94% 70% 13% 65% / 42% 70% 89% 33% ; 
     height: 50px;
@@ -131,6 +141,7 @@ p a{
     transition: transform 1s ease ; 
     /* transform: rotate(130deg); */
     animation: identifier 2.6s infinite;
+    
 }
 
 .btn:hover {
@@ -192,10 +203,11 @@ p a{
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
 .content2 {
-    padding-top: 20px;
+    padding-top: 10px;
     width: auto;
     height: auto;
 }
@@ -221,18 +233,27 @@ p a{
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #92728b;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  border: 2px solid #362d33;
+  width: 600px;
+  height: auto; 
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    align-self: flex-end;
+    margin-bottom: 80px;
+    color: #3d3d3d;
+    float: right;
+    font-size: 34px;
+    font-weight: bold;
+    position: fixed;
 }
 
 .close:hover,
@@ -241,4 +262,11 @@ p a{
   text-decoration: none;
   cursor: pointer;
 }
-
+.credito{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 20px;
+}
