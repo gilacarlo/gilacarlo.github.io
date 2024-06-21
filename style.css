@@ -114,7 +114,7 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom, #a1ffef, #3a3adf);
+    background: linear-gradient(to bottom, #affff2, #4c4cff);
     color: #000000;
     font-size: 15px;
 }
@@ -146,7 +146,6 @@ p a{
 
 .btn:hover {
     background: linear-gradient(to bottom, #79c5b8, #3535c4);
-    
 }
 
 @keyframes example {
@@ -233,7 +232,7 @@ p a{
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #92728b;
+  background-color: #644f5f;
   margin: 15% auto;
   padding: 20px;
   border: 2px solid #362d33;
@@ -269,4 +268,27 @@ p a{
     align-items: center;
     flex-direction: row;
     font-size: 20px;
+}
+@media screen and (max-width: 414px){
+    .info{
+        max-width: 90vw;
+
+    }
+    .btn{
+        max-width: 100%;
+    }
+    .modal-content{
+        max-width: 95vw;
+        margin-top: 40vh;
+    }
+    .trabais{
+        width: 90vw;
+    }
+    .sticky-element{
+        width: 80%;
+    }
+    .btn:hover {
+        pointer-events: none;
+    }
+
 }
