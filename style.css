@@ -279,7 +279,7 @@ p a{
 @media screen and (max-width: 414px){
     .info{
         max-width: 90vw;
-
+        min-height: 400px;
     }
     .btn{
         max-width: 100%;
