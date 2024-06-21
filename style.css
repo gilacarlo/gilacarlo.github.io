@@ -35,6 +35,11 @@
     width: 150px;
     background: linear-gradient(to bottom, #9e9e9e, #757575);
     border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(image.png);
 }
 .trabais{
     min-height: 500px;
