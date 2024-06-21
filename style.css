@@ -295,7 +295,7 @@ p a{
         width: 80%;
     }
     .btn:hover {
-        pointer-events: none;
+        background: linear-gradient(to bottom, #affff2, #4c4cff);;
     }
 
 }
