@@ -1,0 +1,21 @@
+*{
+    padding: 0px;margin: 0px;box-sizing: border-box ;;
+}
+select{
+    height: 30px;
+    width: auto;
+    padding: 5px;
+    margin: 10px;
+}
+body{
+
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;   
+    background-color: #eee;
+}
+p{
+    font-size: 20px;
+    width: 500px;
+}
