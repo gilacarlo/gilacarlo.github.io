@@ -4,165 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da forca</title>
-</head>
-<body>
-    <div class="jogo">
-        <div class="coisasdaforcaemcima" id="coisasdaforcaemcima">
-            <div class="lugardaforca">
-                <div class="forca">
-                    <div class="forca_cima"></div>
-                    <div class="forca_cimadiagonal"></div>
-                    <div class="forca_meio"></div>
-                    <div class="foraca_baixo"></div>
-                    
-                </div>
-                <div class="boneco" id="boneco"></div>
-                <!-- <div class="c"><div class="corda"></div><div class="cabeca"></div></div> -->
-                <!-- <div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div> -->
-                <!-- <div class="p"><div class="perna1"></div><div class="perna2"></div></div></div> -->
-        </div>
-        </div></div>
 
-        <div class="aspalavrasembaixo">
-            <div class="palavrasaamostra" id="palavrasaamostra">
-               
-            </div>
-            <div class="paradigitar" id="paradigitar"></div>
-
-        </div>
-    </div>
-    <script defer>
-        palavras_digitadas = [];
-        let letras_Alphabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-        let botoes_alfabeto = [];
-        let palavras_aleatorias = ['casa', 'carro', 'bicicleta', 'computador', 'telefone', 'caneta', 'livro', 'mesa', 'cadeira', 'roupa', 'comida', 'agua', 'cafe', 'cha', 'dinheiro', 'amigo', 'familia', 'trabalho', 'escola', 'hospital', 'praia', 'parque', 'rua', 'cidade', 'pais', 'amor', 'ódio', 'medo', 'felicidade', 'tristeza', 'esperanca', 'sonho', 'realidade', 'tempo', 'vida', 'morte', 'natureza', 'sol', 'lua', 'estrela', 'ceu', 'terra', 'mar', 'rio', 'montanha', 'floresta', 'animal', 'planta', 'ar', 'fogo', 'terra', 'vento', 'frio', 'quente', 'luz', 'sombra', 'cor', 'branco', 'preto', 'vermelho', 'azul', 'amarelo', 'verde', 'laranja', 'roxo', 'rosa', 'cinza', 'marrom', 'bege', 'musica', 'arte', 'filme', 'serie', 'jogo', 'esporte', 'viagem', 'feriado', 'festa', 'casamento', 'aniversario', 'nascimento', 'morte', 'tradicao', 'cultura', 'religiao', 'politica', 'economia', 'sociedade', 'justica', 'liberdade', 'igualdade', 'solidariedade', 'democracia', 'educacao', 'saude', 'seguranca', 'sustentabilidade', 'tecnologia', 'inovacao', 'internet', 'rede', 'programa', 'aplicativo', 'site', 'rede social', 'mensagem', 'e-mail', 'chamada', 'texto', 'foto', 'video', 'memoria', 'processador', 'teclado', 'mouse', 'tela', 'botao', 'menu', 'configuracao', 'ajuste', 'opcao', 'pagina', 'link', 'busca', 'download', 'upload', 'arquivo', 'pasta', 'backup', 'navegador', 'senha', 'login', 'usuario', 'perfil', 'amigo', 'seguir', 'curtir', 'compartilhar', 'comentario', 'postagem', 'feed', 'notificacao', 'privacidade', 'termo', 'condicao', 'politica', 'aceitar', 'recusar', 'concordar', 'discordar', 'permitir', 'bloquear', 'denunciar', 'aprovar', 'rejeitar', 'solicitar', 'confirmar',"arara", "cobra", "leopardo", "papagaio", "tubarao", "orangotango", "hipopotamo", "águia", "golfinho", "zebu", "avestruz", "falcao", "urubu", "coelho", "tartaruga", "lobo-guara", "suricato", "pinguim", "beija-flor", "baleia", "pica-pau", "avestruz", "besouro", "borboleta", "caranguejo", "cavalo", "formiga", "enguia", "bufalo", "cabra", "dromedario", "esquilo", "foca", "gnu", "hiena", "iguana", "javali", "kiwi", "lhama", "morcego", "naja", "ourico", "pombo", "quati", "raposa", "salamandra", "tamandua", "urso-polar", "vespa", "xexeu", "zaragateiro", "atila", "xinxim", "ajuricaba", "anu-branco", "araponga", "berne", "bicho-preguica", "boitata", "camaleao", "coruja", "dourado", "ervilha", "formiga-leao", "gamba", "guaxinim", "hiena-malhada", "iguana-verde", "jiboia", "jupara", "lagarto-verde", "lula", "marmota", "naja-mandarim", "onca-pintada", "pica-pau-verde-barrado", "quati-de-cauda-anelada", "ra-verde-arboricola", "sagui"];
-        
-        // i = 0;palavras_aleatorias.map((x)=>{i++;});console.log(i);
-
-        palavra_sortiada = palavras_aleatorias[Math.floor(Math.random() * (238))]  ;
-
-        function palavras_true_or_false(palavra){
-            if(palavra == "-"){return true}
-            for (let i2 = 0; i2 < palavras_digitadas.length; i2++){
-                if (palavra == palavras_digitadas[i2]){
-                    return true;}
-            }return false;}
-        function Redundancia_Letra_digitada(letra){
-            for (let i3 = 0; i3 < palavras_digitadas.length; i3++){
-                if (letra == palavras_digitadas[i3]){
-                    return false;}
-            }return true;}
-        function index_letra(letra){
-            for (let i4 = 0; i4 < letras_Alphabeto.length; i4++){
-                if (letra == letras_Alphabeto[i4]){
-                    return i4;}}}
-        function check_if_correct_palavra(letra){
-            for (let i5 = 0; i5 < palavra_sortiada.length; i5++){
-                if(letra == palavra_sortiada[i5]){
-                    return true;}
-            }return false;}
-        function playAgain(){
-            botoes_alfabeto = []
-            letras_Alphabeto.map((x)=>{
-                botoes_alfabeto.push(`<div class='botao' onclick="index('${x.toLowerCase()}');" >${x}</div>`);})
-            palavra_sortiada = [];
-            palavra_sortiada = palavras_aleatorias[Math.floor(Math.random() * (238))]  ;
-            document.getElementById("palavrasaamostra").innerHTML = ``;
-            palavras_digitadas = [];
-            document.getElementById("boneco").innerHTML = ``;
-            acertou = 0;
-            letra_digitada = "";
-            palavras_acertadas = 0;
-                console.log(palavra_sortiada)
-
-            
-            document.getElementById("coisasdaforcaemcima").innerHTML = ` <div class="lugardaforca">
-                <div class="forca">
-                    <div class="forca_cima"></div>
-                    <div class="forca_cimadiagonal"></div>
-                    <div class="forca_meio"></div>
-                    <div class="foraca_baixo"></div>
-                </div><div class="boneco" id="boneco"></div></div>`;
-        }
-        palavras_acertadas = 0
-        acertou = 0;
-        botoes_alfabeto = []
-        letras_Alphabeto.map((x)=>{
-            botoes_alfabeto.push(`<div class='botao' onclick="index('${x.toLowerCase()}');" >${x}</div>`);})
-
-        console.log(palavra_sortiada)
-        index();
-        function index(letra_digitada = ""){
-
-
-            if(Redundancia_Letra_digitada(letra_digitada) && letra_digitada != ""){ 
-                palavras_digitadas.push(letra_digitada);
-                
-                if(check_if_correct_palavra(letra_digitada)){
-                    botoes_alfabeto[index_letra(letra_digitada.toUpperCase())] = `<div class='botao_verde');" >${letra_digitada.toUpperCase()}</div>`;
-                
-                }else{
-                    botoes_alfabeto[index_letra(letra_digitada.toUpperCase())] = `<div class='botao_vermelho');" >${letra_digitada.toUpperCase()}</div>`;
-    
-                    
-                    if (document.getElementById("boneco").innerHTML == `<div class="c"><div class="corda"></div><div class="cabeca"></div></div><div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div><div class="p"><div class="perna1"></div><div class="perna2"></div></div>`){
-                        
-                        document.getElementById("boneco").innerHTML += `<button class="lulu" onclick="playAgain(); index('');">Play Again</button>`;
-                        document.getElementById("coisasdaforcaemcima").innerHTML += `<div class="gayzola"><h1>Voce Perdeu!</h1></div>`;
-                        botoes_alfabeto = [];
-                        letras_Alphabeto.map((x)=>{
-                            botoes_alfabeto.push(`<div class='botao_vermelho' >${x}</div>`);})
-                    }
-                    if(document.getElementById("boneco").innerHTML == `<div class="c"><div class="corda"></div><div class="cabeca"></div></div><div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div>`){
-                        document.getElementById("boneco").innerHTML +=  `<div class="p"><div class="perna1"></div><div class="perna2"></div></div></div>`
-                    }
-                    if(document.getElementById("boneco").innerHTML == `<div class="c"><div class="corda"></div><div class="cabeca"></div></div>`){
-                        document.getElementById("boneco").innerHTML += `<div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div>`
-                    }
-                    
-                    if (document.getElementById("boneco").innerHTML == ``){
-                        document.getElementById("boneco").innerHTML += `<div class="c"><div class="corda"></div><div class="cabeca"></div></div>`
-                    } 
-                    
-                    
-                    // console.log(document.getElementById("boneco").innerHTML)
-                    // document.getElementById("boneco").innerHTML += `<button> Play Again </button>`;
-                }
-            }
-            
-            
-            
-            
-            // document.getElementById("paradigitar").innerHTML += `<div class='botao' onclick="index('${x.toLowerCase()}');" >${x}</div>`;
-            // index_letra
-            palavras_acertadas = 0
-
-            document.getElementById("palavrasaamostra").innerHTML = ``;
-            for (let i = 0; i < palavra_sortiada.length; i++) {
-                if(palavras_true_or_false(palavra_sortiada[i])){
-                    document.getElementById("palavrasaamostra").innerHTML += `<div class='palavras'> <div class='palavra_emcima'> ${palavra_sortiada[i]} </div> <div class='palavra_embaixo'> </div></div>`;
-                    palavras_acertadas ++
-                }else{
-                    document.getElementById("palavrasaamostra").innerHTML += `<div class='palavras'> <div class='palavra_emcima'> </div> <div class='palavra_embaixo'> </div></div>`;
-                }
-            }
-        
-            console.log(palavras_acertadas,palavra_sortiada.length)
-            if(palavras_acertadas == palavra_sortiada.length){
-                document.getElementById("coisasdaforcaemcima").innerHTML += `<div class="gayzola2"><h1>Voce Ganhou!</h1></div>`;
-                document.getElementById("boneco").innerHTML += `<button class="lulu" onclick="playAgain(); index('');">Play Again</button>`;                
-                
-                botoes_alfabeto = [];
-                letras_Alphabeto.map((x)=>{
-                    botoes_alfabeto.push(`<div class='botao_verde' >${x}</div>`);})
-            }
-
-            document.getElementById("paradigitar").innerHTML = ``;
-            botoes_alfabeto.map((x)=>{document.getElementById("paradigitar").innerHTML += x;})
-            
-        }
-        
-    </script>
     <style>
         .lulu{
             width: 100%;
@@ -480,6 +322,166 @@ transform-origin: 0 0;
 
 }
     </style>
+</head>
+<body>
+    <div class="jogo">
+        <div class="coisasdaforcaemcima" id="coisasdaforcaemcima">
+            <div class="lugardaforca">
+                <div class="forca">
+                    <div class="forca_cima"></div>
+                    <div class="forca_cimadiagonal"></div>
+                    <div class="forca_meio"></div>
+                    <div class="foraca_baixo"></div>
+                    
+                </div>
+                <div class="boneco" id="boneco"></div>
+                <!-- <div class="c"><div class="corda"></div><div class="cabeca"></div></div> -->
+                <!-- <div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div> -->
+                <!-- <div class="p"><div class="perna1"></div><div class="perna2"></div></div></div> -->
+        </div>
+        </div></div>
+
+        <div class="aspalavrasembaixo">
+            <div class="palavrasaamostra" id="palavrasaamostra">
+               
+            </div>
+            <div class="paradigitar" id="paradigitar"></div>
+
+        </div>
+    
+    <script>
+        palavras_digitadas = [];
+        let letras_Alphabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+        let botoes_alfabeto = [];
+        let palavras_aleatorias = ['casa', 'carro', 'bicicleta', 'computador', 'telefone', 'caneta', 'livro', 'mesa', 'cadeira', 'roupa', 'comida', 'agua', 'cafe', 'cha', 'dinheiro', 'amigo', 'familia', 'trabalho', 'escola', 'hospital', 'praia', 'parque', 'rua', 'cidade', 'pais', 'amor', 'ódio', 'medo', 'felicidade', 'tristeza', 'esperanca', 'sonho', 'realidade', 'tempo', 'vida', 'morte', 'natureza', 'sol', 'lua', 'estrela', 'ceu', 'terra', 'mar', 'rio', 'montanha', 'floresta', 'animal', 'planta', 'ar', 'fogo', 'terra', 'vento', 'frio', 'quente', 'luz', 'sombra', 'cor', 'branco', 'preto', 'vermelho', 'azul', 'amarelo', 'verde', 'laranja', 'roxo', 'rosa', 'cinza', 'marrom', 'bege', 'musica', 'arte', 'filme', 'serie', 'jogo', 'esporte', 'viagem', 'feriado', 'festa', 'casamento', 'aniversario', 'nascimento', 'morte', 'tradicao', 'cultura', 'religiao', 'politica', 'economia', 'sociedade', 'justica', 'liberdade', 'igualdade', 'solidariedade', 'democracia', 'educacao', 'saude', 'seguranca', 'sustentabilidade', 'tecnologia', 'inovacao', 'internet', 'rede', 'programa', 'aplicativo', 'site', 'rede social', 'mensagem', 'e-mail', 'chamada', 'texto', 'foto', 'video', 'memoria', 'processador', 'teclado', 'mouse', 'tela', 'botao', 'menu', 'configuracao', 'ajuste', 'opcao', 'pagina', 'link', 'busca', 'download', 'upload', 'arquivo', 'pasta', 'backup', 'navegador', 'senha', 'login', 'usuario', 'perfil', 'amigo', 'seguir', 'curtir', 'compartilhar', 'comentario', 'postagem', 'feed', 'notificacao', 'privacidade', 'termo', 'condicao', 'politica', 'aceitar', 'recusar', 'concordar', 'discordar', 'permitir', 'bloquear', 'denunciar', 'aprovar', 'rejeitar', 'solicitar', 'confirmar',"arara", "cobra", "leopardo", "papagaio", "tubarao", "orangotango", "hipopotamo", "águia", "golfinho", "zebu", "avestruz", "falcao", "urubu", "coelho", "tartaruga", "lobo-guara", "suricato", "pinguim", "beija-flor", "baleia", "pica-pau", "avestruz", "besouro", "borboleta", "caranguejo", "cavalo", "formiga", "enguia", "bufalo", "cabra", "dromedario", "esquilo", "foca", "gnu", "hiena", "iguana", "javali", "kiwi", "lhama", "morcego", "naja", "ourico", "pombo", "quati", "raposa", "salamandra", "tamandua", "urso-polar", "vespa", "xexeu", "zaragateiro", "atila", "xinxim", "ajuricaba", "anu-branco", "araponga", "berne", "bicho-preguica", "boitata", "camaleao", "coruja", "dourado", "ervilha", "formiga-leao", "gamba", "guaxinim", "hiena-malhada", "iguana-verde", "jiboia", "jupara", "lagarto-verde", "lula", "marmota", "naja-mandarim", "onca-pintada", "pica-pau-verde-barrado", "quati-de-cauda-anelada", "ra-verde-arboricola", "sagui"];
+        
+        // i = 0;palavras_aleatorias.map((x)=>{i++;});console.log(i);
+
+        palavra_sortiada = palavras_aleatorias[Math.floor(Math.random() * (238))]  ;
+
+        function palavras_true_or_false(palavra){
+            if(palavra == "-"){return true}
+            for (let i2 = 0; i2 < palavras_digitadas.length; i2++){
+                if (palavra == palavras_digitadas[i2]){
+                    return true;}
+            }return false;}
+        function Redundancia_Letra_digitada(letra){
+            for (let i3 = 0; i3 < palavras_digitadas.length; i3++){
+                if (letra == palavras_digitadas[i3]){
+                    return false;}
+            }return true;}
+        function index_letra(letra){
+            for (let i4 = 0; i4 < letras_Alphabeto.length; i4++){
+                if (letra == letras_Alphabeto[i4]){
+                    return i4;}}}
+        function check_if_correct_palavra(letra){
+            for (let i5 = 0; i5 < palavra_sortiada.length; i5++){
+                if(letra == palavra_sortiada[i5]){
+                    return true;}
+            }return false;}
+        function playAgain(){
+            botoes_alfabeto = []
+            letras_Alphabeto.map((x)=>{
+                botoes_alfabeto.push(`<div class='botao' onclick="index('${x.toLowerCase()}');" >${x}</div>`);})
+            palavra_sortiada = [];
+            palavra_sortiada = palavras_aleatorias[Math.floor(Math.random() * (238))]  ;
+            document.getElementById("palavrasaamostra").innerHTML = ``;
+            palavras_digitadas = [];
+            document.getElementById("boneco").innerHTML = ``;
+            acertou = 0;
+            letra_digitada = "";
+            palavras_acertadas = 0;
+                console.log(palavra_sortiada)
+
+            
+            document.getElementById("coisasdaforcaemcima").innerHTML = ` <div class="lugardaforca">
+                <div class="forca">
+                    <div class="forca_cima"></div>
+                    <div class="forca_cimadiagonal"></div>
+                    <div class="forca_meio"></div>
+                    <div class="foraca_baixo"></div>
+                </div><div class="boneco" id="boneco"></div></div>`;
+        }
+        palavras_acertadas = 0
+        acertou = 0;
+        botoes_alfabeto = []
+        letras_Alphabeto.map((x)=>{
+            botoes_alfabeto.push(`<div class='botao' onclick="index('${x.toLowerCase()}');" >${x}</div>`);})
+
+        console.log(palavra_sortiada)
+        index();
+        function index(letra_digitada = ""){
+
+
+            if(Redundancia_Letra_digitada(letra_digitada) && letra_digitada != ""){ 
+                palavras_digitadas.push(letra_digitada);
+                
+                if(check_if_correct_palavra(letra_digitada)){
+                    botoes_alfabeto[index_letra(letra_digitada.toUpperCase())] = `<div class='botao_verde');" >${letra_digitada.toUpperCase()}</div>`;
+                
+                }else{
+                    botoes_alfabeto[index_letra(letra_digitada.toUpperCase())] = `<div class='botao_vermelho');" >${letra_digitada.toUpperCase()}</div>`;
+    
+                    
+                    if (document.getElementById("boneco").innerHTML == `<div class="c"><div class="corda"></div><div class="cabeca"></div></div><div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div><div class="p"><div class="perna1"></div><div class="perna2"></div></div>`){
+                        
+                        document.getElementById("boneco").innerHTML += `<button class="lulu" onclick="playAgain(); index('');">Play Again</button>`;
+                        document.getElementById("coisasdaforcaemcima").innerHTML += `<div class="gayzola"><h1>Voce Perdeu!</h1></div>`;
+                        botoes_alfabeto = [];
+                        letras_Alphabeto.map((x)=>{
+                            botoes_alfabeto.push(`<div class='botao_vermelho' >${x}</div>`);})
+                    }
+                    if(document.getElementById("boneco").innerHTML == `<div class="c"><div class="corda"></div><div class="cabeca"></div></div><div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div>`){
+                        document.getElementById("boneco").innerHTML +=  `<div class="p"><div class="perna1"></div><div class="perna2"></div></div></div>`
+                    }
+                    if(document.getElementById("boneco").innerHTML == `<div class="c"><div class="corda"></div><div class="cabeca"></div></div>`){
+                        document.getElementById("boneco").innerHTML += `<div class="b"><div class="braco1"></div><div class="tronco"></div><div class="braco2"></div></div>`
+                    }
+                    
+                    if (document.getElementById("boneco").innerHTML == ``){
+                        document.getElementById("boneco").innerHTML += `<div class="c"><div class="corda"></div><div class="cabeca"></div></div>`
+                    } 
+                    
+                    
+                    // console.log(document.getElementById("boneco").innerHTML)
+                    // document.getElementById("boneco").innerHTML += `<button> Play Again </button>`;
+                }
+            }
+            
+            
+            
+            
+            // document.getElementById("paradigitar").innerHTML += `<div class='botao' onclick="index('${x.toLowerCase()}');" >${x}</div>`;
+            // index_letra
+            palavras_acertadas = 0
+
+            document.getElementById("palavrasaamostra").innerHTML = ``;
+            for (let i = 0; i < palavra_sortiada.length; i++) {
+                if(palavras_true_or_false(palavra_sortiada[i])){
+                    document.getElementById("palavrasaamostra").innerHTML += `<div class='palavras'> <div class='palavra_emcima'> ${palavra_sortiada[i]} </div> <div class='palavra_embaixo'> </div></div>`;
+                    palavras_acertadas ++
+                }else{
+                    document.getElementById("palavrasaamostra").innerHTML += `<div class='palavras'> <div class='palavra_emcima'> </div> <div class='palavra_embaixo'> </div></div>`;
+                }
+            }
+        
+            console.log(palavras_acertadas,palavra_sortiada.length)
+            if(palavras_acertadas == palavra_sortiada.length){
+                document.getElementById("coisasdaforcaemcima").innerHTML += `<div class="gayzola2"><h1>Voce Ganhou!</h1></div>`;
+                document.getElementById("boneco").innerHTML += `<button class="lulu" onclick="playAgain(); index('');">Play Again</button>`;                
+                
+                botoes_alfabeto = [];
+                letras_Alphabeto.map((x)=>{
+                    botoes_alfabeto.push(`<div class='botao_verde' >${x}</div>`);})
+            }
+
+            document.getElementById("paradigitar").innerHTML = ``;
+            botoes_alfabeto.map((x)=>{document.getElementById("paradigitar").innerHTML += x;})
+            
+        }
+        
+    </script>
+    
     
 </body>
 </html>
