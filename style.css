@@ -4,7 +4,11 @@
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
-
+.traco{
+    height: 1px;
+    width: 300px;
+    background-color: #000;
+}
 .info100{
     height: 150px;
     width: 600px;
