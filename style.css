@@ -291,10 +291,10 @@ p a{
     .btn{
         max-width: 100%;
     }
-    /* .modal-content{
+    .modal-content{
         max-width: 95vw;
-        margin-top: 40vh;
-    } */
+        /* margin-top: 40vh; */
+    }
     .trabais{
         width: 90vw;
     }
