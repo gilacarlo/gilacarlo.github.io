@@ -246,7 +246,7 @@ p a{
 /* Modal Content/Box */
 .modal-content {
   background-color: #644f5f;
-  margin: 15% auto;
+  margin: 20vh auto;
   padding: 20px;
   border: 2px solid #362d33;
   width: 600px;
