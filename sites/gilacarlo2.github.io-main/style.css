@@ -1,0 +1,217 @@
+
+
+.red{
+    background: linear-gradient(to bottom, #f5574c, #ff0e0e);
+}
+.red:hover{
+    background: linear-gradient(to bottom, #c5463d, #ce0d0d);
+    
+}
+.blue{
+    background: linear-gradient(to bottom, #2cdfff, #5d78f0);
+}
+.blue:hover{
+    background: linear-gradient(to bottom, #28bad4, #3e62ff);
+}
+.botao_aside_upgrade{
+    height: 50px;
+    width: 50px;
+    /* background-color: rgb(53, 53, 53); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0px 6px 6px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.555);
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+}
+.aside_upgrade{
+    width: var(--aside_width);
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.coisas{
+    width: auto;
+    height: 100%;
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .warnings{
+    height: 100px;
+    width: 600px;
+    background-color: #000000d9;
+    position: fixed;
+    top: 30vh;
+    align-self: center;
+    justify-self: center;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+    animation-name: fadeOut;
+    animation-duration: 1.8s;
+    animation-iteration-count:3;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+} */
+.aside_in_out{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(254, 253, 255);
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 0 0 5px rgb(177, 177, 177);
+    border-radius: 15px;
+    align-self: flex-start;
+    margin: 15px 10px 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    user-select: none;
+}
+.aside_in_out:hover{
+    background-color: rgb(212, 212, 212);
+
+}
+.esquerdo_botao_aside{
+    height: 100%;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.esquerdo_botao_aside svg{
+    max-width: 70%;
+    max-height: 70%;
+}
+.direito_botao_aside{
+    height: 100%;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.botao_aside{
+    height: 50px;
+    width: var(--aside_width);
+    background-color: rgb(144, 214, 144);
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    cursor: pointer;
+    user-select: none;
+}
+.botao_aside:hover{
+    background-color: rgb(97, 185, 97);
+
+}
+.botao_aside:hover{
+    border: 1px solid black;
+}
+.score ,.CPS{
+    height: 100px;
+    width: auto;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.circulo{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color:crimson;
+    cursor: pointer;
+    user-select: none;
+}
+aside{
+    height: 98vh;
+    width: 200px;
+    background-color: var(--background_color);
+    position: fixed;
+    right: 0;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.aside_main{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 10px;
+}
+header{
+    height: 100px;
+    width: 98vw;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+main{
+    height: 70vh;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: rgb(188, 224, 255);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --background_color:rgba(0, 0, 0, 0.836);
+    --aside_width:170px;
+    --ASIDE_aside_in_outstyleright:-130px;
+}
