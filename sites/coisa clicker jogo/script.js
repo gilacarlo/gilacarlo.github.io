@@ -1,4 +1,4 @@
-let coisas_$ = 30000;
+let coisas_$ = 0;
 let clickador_de_coisas_passive_income = 0; let BUFF_clickador_de_coisas_passive_income = 1;
 let lambedor_de_coisas_passive_income = 0; let BUFF_lambedor_de_coisas_passive_income = 1;
 let coisa_trabalhista_passive_income = 0; let BUFF_coisa_trabalhista_passive_income = 1;
