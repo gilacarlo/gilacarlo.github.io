@@ -5,24 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogin</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="style_script.js"></script>
 </head>
-<body id="body">
+<body id="body" onclick="if(box_question_in_out == 1){ content_question_button()};">
     <header>
-        <div class="coisas">coisas:</div>
-        <div class="score" id="score">0</div>
-        <div class="coisas">CPS:</div>
-        <div class="CPS" id="CPS"></div>
+        <div class="box_header">
+            <div class="coisas">coisas:</div>
+            <div class="score" id="score">0</div>
+        </div>
+        <div class="box_header">
+            <div class="coisas">CPS:</div>
+            <div class="CPS" id="CPS"></div>
+            <div class="question" id="question" onclick="question_button();">
+                <div class="box_question" id="box_question"></div>
+            </div>
+        </div>
     </header>
     <main id="main">
         <div class="circulo" id="circulo" onclick="circuloclicada();"></div>
+        <!-- <div class="cursors_structure" id="cursors_structure">
+            <div class="arrow_structure" id="arrow_structure"></div>
+        </div> -->
     </main>
     <aside id="aside">
         <div class="aside_in_out" onclick="aside_in_out();">X</div>
         <div class="aside_upgrade" id="aside_upgrade"></div>
         <div class="aside_main" id="aside_main"></div>
     </aside>
+
+    
 
     <div class="hiden">
         <div class="circulo_little" id="circulo_little"></div>
@@ -31,5 +41,6 @@
     </div>
 
 </body>
-
+<script src="script.js"></script>
+<script src="style_script.js"></script>
 </html>

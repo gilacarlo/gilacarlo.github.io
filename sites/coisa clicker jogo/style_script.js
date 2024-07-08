@@ -1,3 +1,259 @@
+
+
+
+
+
+
+
+let box_question_in_out = 0;
+function question_button(){
+    const box_question = document.getElementById('box_question');
+
+    if(box_question_in_out == 0){
+        box_question.style.display = "flex";
+        content_question_button();
+        box_question_in_out = 1;
+    }else{
+        box_question.style.display = "none";
+
+        box_question_in_out = 0;
+    }
+}
+
+function content_question_button(){
+   setTimeout(() => {
+    document.getElementById('box_question').innerHTML = ``;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_0}Clickador: ${(10 * (clickador_de_coisas_passive_income * BUFF_clickador_de_coisas_passive_income)).toFixed(1)}/s (${(((10 * (clickador_de_coisas_passive_income * BUFF_clickador_de_coisas_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_1}Lambedor: ${(10 * (lambedor_de_coisas_passive_income * BUFF_lambedor_de_coisas_passive_income)).toFixed(1)}/s (${(((10 * (lambedor_de_coisas_passive_income * BUFF_lambedor_de_coisas_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_2}Trabalhista: ${(10 * (coisa_trabalhista_passive_income * BUFF_coisa_trabalhista_passive_income)).toFixed(1)}/s (${(((10 * (coisa_trabalhista_passive_income * BUFF_coisa_trabalhista_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_3}Fotosintese: ${(10 * (fotosintese_de_coisa_passive_income * BUFF_fotosintese_de_coisa_passive_income)).toFixed(1)}/s (${(((10 * (fotosintese_de_coisa_passive_income * BUFF_fotosintese_de_coisa_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+ 
+    }, 10);
+}
+
+
+
+
+
+document.getElementById('main').innerHTML += '<div class="cursors_structure" id="cursors_structure"></div>';
+document.getElementById('main').innerHTML += '<div class="cursors_structure2" id="cursors_structure2"></div>';
+document.getElementById('main').innerHTML += '<div class="cursors_structure3" id="cursors_structure3"></div>';
+document.getElementById('main').innerHTML += '<div class="cursors_structure4" id="cursors_structure4"></div>';
+
+for(let i3 = 0; i3 < 24; i3++){
+    document.getElementById('cursors_structure').innerHTML += `<div class="arrow_structure" id="arrow_structure${i3}">${svg_0}</div>`;
+    const arrow_structure = document.getElementById(`arrow_structure${i3}`);
+
+    arrow_structure.style.transform = `rotate(${(15 * i3) + 'deg'})`;
+}
+for(let i3 = 24; i3 < 60; i3++){
+    document.getElementById('cursors_structure2').innerHTML += `<div class="arrow_structure2" id="arrow_structure2${i3}">${svg_0}</div>`;
+    const arrow_structure = document.getElementById(`arrow_structure2${i3}`);
+
+    arrow_structure.style.transform = `rotate(${(10 * i3) + 'deg'})`;
+}
+for(let i3 = 60; i3 < 110; i3++){
+    document.getElementById('cursors_structure3').innerHTML += `<div class="arrow_structure3" id="arrow_structure3${i3}">${svg_0}</div>`;
+    const arrow_structure = document.getElementById(`arrow_structure3${i3}`);
+
+    arrow_structure.style.transform = `rotate(${(7.19 * i3) + 'deg'})`;
+}
+for(let i3 = 110; i3 < 170; i3++){
+    document.getElementById('cursors_structure4').innerHTML += `<div class="arrow_structure4" id="arrow_structure4${i3}">${svg_0}</div>`;
+    const arrow_structure = document.getElementById(`arrow_structure4${i3}`);
+
+    arrow_structure.style.transform = `rotate(${(6 * i3) + 'deg'})`;
+}
+
+setInterval(animate_the_rotate, 10);
+
+setInterval(animate_the_arrow, 600);
+setInterval(animate_the_arrow, 933);
+
+setInterval(animate_the_arrow2, 300);
+setInterval(animate_the_arrow2, 633);
+
+setInterval(animate_the_arrow3, 300);
+setInterval(animate_the_arrow3, 633);
+setInterval(animate_the_arrow3, 275);
+
+setInterval(animate_the_arrow4, 300);
+setInterval(animate_the_arrow4, 533);
+setInterval(animate_the_arrow4, 175);
+
+
+let i3 = 0;
+function  appear_arrow_structure(){
+    if(i3 < 24){
+        const arrow_structure = document.getElementById(`arrow_structure${i3}`);
+        arrow_structure.style.display = "flex";
+    }else if(i3 < 60){
+        const arrow_structure2 = document.getElementById(`arrow_structure2${i3}`);
+        arrow_structure2.style.display = "flex";
+    }else if(i3 < 110){
+        const arrow_structure3 = document.getElementById(`arrow_structure3${i3}`);
+        arrow_structure3.style.display = "flex";
+    }else if(i3 < 170){
+        const arrow_structure4 = document.getElementById(`arrow_structure4${i3}`);
+        arrow_structure4.style.display = "flex";
+    }
+    i3++;
+}
+
+
+let i4 = 0;
+function animate_the_rotate(){
+    const cursors_structure = document.getElementById(`cursors_structure`);
+    const cursors_structure2 = document.getElementById(`cursors_structure2`);
+    const cursors_structure3 = document.getElementById(`cursors_structure3`);
+    const cursors_structure4 = document.getElementById(`cursors_structure4`);
+
+
+    cursors_structure.style.transform = `rotate(${(0.08 * i4) + 'deg'})`;
+
+    cursors_structure2.style.transform = `rotate(${(-1 * (0.02 * i4)) + 'deg'})`;
+
+    cursors_structure3.style.transform = `rotate(${((0.05 * i4)) + 'deg'})`;
+
+    cursors_structure4.style.transform = `rotate(${((0.03 * i4)) + 'deg'})`;
+    i4++;
+}
+
+function animate_the_arrow(){
+    var index_arrow = num_aleatorio(0,23);
+    setTimeout(() => {
+        const svg_arrow_structure = document.getElementById(`arrow_structure${index_arrow}`);
+        svg_arrow_structure.style.paddingBottom = "0px";
+    }, 1);
+    setTimeout(() => {
+        const svg_arrow_structure = document.getElementById(`arrow_structure${index_arrow}`);
+        svg_arrow_structure.style.paddingBottom = "5px";
+    }, 15);
+    setTimeout(() => {
+        const svg_arrow_structure = document.getElementById(`arrow_structure${index_arrow}`);
+        svg_arrow_structure.style.paddingBottom = "10px";
+    }, 30);
+    setTimeout(() => {
+        const svg_arrow_structure = document.getElementById(`arrow_structure${index_arrow}`);
+        svg_arrow_structure.style.paddingBottom = "15px";
+    }, 45);
+    setTimeout(() => {
+        const svg_arrow_structure = document.getElementById(`arrow_structure${index_arrow}`);
+        svg_arrow_structure.style.paddingBottom = "10px";
+    }, 60);
+    setTimeout(() => {
+        const svg_arrow_structure = document.getElementById(`arrow_structure${index_arrow}`);
+        svg_arrow_structure.style.paddingBottom = "5px";
+    }, 75);
+    setTimeout(() => {
+        const svg_arrow_structure = document.getElementById(`arrow_structure${index_arrow}`);
+        svg_arrow_structure.style.paddingBottom = "0px";
+    }, 90);
+}
+
+function animate_the_arrow2(){
+    var index_arrow = num_aleatorio(24,59);
+    setTimeout(() => {
+        const svg_arrow_structure2 = document.getElementById(`arrow_structure2${index_arrow}`);
+        svg_arrow_structure2.style.paddingBottom = "0px";
+    }, 1);
+    setTimeout(() => {
+        const svg_arrow_structure2 = document.getElementById(`arrow_structure2${index_arrow}`);
+        svg_arrow_structure2.style.paddingBottom = "5px";
+    }, 15);
+    setTimeout(() => {
+        const svg_arrow_structure2 = document.getElementById(`arrow_structure2${index_arrow}`);
+        svg_arrow_structure2.style.paddingBottom = "10px";
+    }, 30);
+    setTimeout(() => {
+        const svg_arrow_structure2 = document.getElementById(`arrow_structure2${index_arrow}`);
+        svg_arrow_structure2.style.paddingBottom = "15px";
+    }, 45);
+    setTimeout(() => {
+        const svg_arrow_structure2 = document.getElementById(`arrow_structure2${index_arrow}`);
+        svg_arrow_structure2.style.paddingBottom = "10px";
+    }, 60);
+    setTimeout(() => {
+        const svg_arrow_structure2 = document.getElementById(`arrow_structure2${index_arrow}`);
+        svg_arrow_structure2.style.paddingBottom = "10px";
+    }, 75);
+    setTimeout(() => {
+        const svg_arrow_structure2 = document.getElementById(`arrow_structure2${index_arrow}`);
+        svg_arrow_structure2.style.paddingBottom = "0px";
+    }, 90);
+}
+
+function animate_the_arrow3(){
+    var index_arrow = num_aleatorio(60,109);
+    setTimeout(() => {
+        const svg_arrow_structure3 = document.getElementById(`arrow_structure3${index_arrow}`);
+        svg_arrow_structure3.style.paddingBottom = "0px";
+    }, 1);
+    setTimeout(() => {
+        const svg_arrow_structure3 = document.getElementById(`arrow_structure3${index_arrow}`);
+        svg_arrow_structure3.style.paddingBottom = "5px";
+    }, 15);
+    setTimeout(() => {
+        const svg_arrow_structure3 = document.getElementById(`arrow_structure3${index_arrow}`);
+        svg_arrow_structure3.style.paddingBottom = "10px";
+    }, 30);
+    setTimeout(() => {
+        const svg_arrow_structure3 = document.getElementById(`arrow_structure3${index_arrow}`);
+        svg_arrow_structure3.style.paddingBottom = "15px";
+    }, 45);
+    setTimeout(() => {
+        const svg_arrow_structure3 = document.getElementById(`arrow_structure3${index_arrow}`);
+        svg_arrow_structure3.style.paddingBottom = "10px";
+    }, 60);
+    setTimeout(() => {
+        const svg_arrow_structure3 = document.getElementById(`arrow_structure3${index_arrow}`);
+        svg_arrow_structure3.style.paddingBottom = "5px";
+    }, 75);
+    setTimeout(() => {
+        const svg_arrow_structure3 = document.getElementById(`arrow_structure3${index_arrow}`);
+        svg_arrow_structure3.style.paddingBottom = "0px";
+    }, 90);
+}
+
+function animate_the_arrow4(){
+    var index_arrow = num_aleatorio(110,169);
+    setTimeout(() => {
+        const svg_arrow_structure4 = document.getElementById(`arrow_structure4${index_arrow}`);
+        svg_arrow_structure4.style.paddingBottom = "0px";
+    }, 1);
+    setTimeout(() => {
+        const svg_arrow_structure4 = document.getElementById(`arrow_structure4${index_arrow}`);
+        svg_arrow_structure4.style.paddingBottom = "5px";
+    }, 15);
+    setTimeout(() => {
+        const svg_arrow_structure4 = document.getElementById(`arrow_structure4${index_arrow}`);
+        svg_arrow_structure4.style.paddingBottom = "10px";
+    }, 30);
+    setTimeout(() => {
+        const svg_arrow_structure4 = document.getElementById(`arrow_structure4${index_arrow}`);
+        svg_arrow_structure4.style.paddingBottom = "15px";
+    }, 45);
+    setTimeout(() => {
+        const svg_arrow_structure4 = document.getElementById(`arrow_structure4${index_arrow}`);
+        svg_arrow_structure4.style.paddingBottom = "10px";
+    }, 60);
+    setTimeout(() => {
+        const svg_arrow_structure4 = document.getElementById(`arrow_structure4${index_arrow}`);
+        svg_arrow_structure4.style.paddingBottom = "5px";
+    }, 75);
+    setTimeout(() => {
+        const svg_arrow_structure4 = document.getElementById(`arrow_structure4${index_arrow}`);
+        svg_arrow_structure4.style.paddingBottom = "0px";
+    }, 90);
+}
+
+// for(gayzao = 0;gayzao < 170;gayzao++){
+//     appear_arrow_structure();
+// }
+
+
+
+
 let state_aside_in_out = 0;
 
 function aside_in_out(){
@@ -49,6 +305,12 @@ function circuloclicada(){
     
     Circulo_effects_when_clicked();
     index_circulo_little++;
+
+    animate_the_arrow();
+    animate_the_arrow2();
+    animate_the_arrow3();
+    animate_the_arrow4();
+
 }
 
 function Circulo_effects_when_clicked(){
@@ -208,3 +470,5 @@ function  animação_do_circulo(index_circulo_little,eventoX,eventoY,directionX,
         div.style.top = Y;
     }, 80 * delay_animation);
 }
+
+document.getElementById('question').innerHTML += question;
