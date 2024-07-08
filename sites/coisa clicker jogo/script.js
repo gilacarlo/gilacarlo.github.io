@@ -67,8 +67,9 @@ let lista_last_upgrade = [
     [120,"Click +100%",2,"Click"],[200,"Clickador +100%",2,"Clickador"],[300,"Click +100%",2,"Click"],
     [450,"Click +100%",2,"Click"],[500,"Clickador +100%",2,"Clickador"],[750,"Click +100%",2,"Click"],
     [800,"Clickador +100%",2,"Clickador"],[1000,"Lambedor +50%",1.5,"Lambedor"],[1100,"Click X4",4,"Click"],
-    [1500,"Lambedor +50%",1.5,"Lambedor"],[1550,"Clickador +100%",2,"Clickador"],[1600,"Trabalhista +50%",1.5,"Trabalhista"],
-    [4000,"Lambedor X2",2,"Lambedor"],[6000,"Click X4",4,"Click"],[8000,"Fotosintese +50%",1.5,"Fotosintese"],
+    [1500,"Lambedor +50%",1.5,"Lambedor"],[1550,"Clickador +100%",2,"Clickador"],[1600,"Trabalhista X3",3,"Trabalhista"],
+    [4000,"Lambedor X2",2,"Lambedor"],[6000,"Click X4",4,"Click"],[20000,"Fotosintese +50%",1.5,"Fotosintese"],
+    [40000,"Click X10",10,"Click"],[50000,"Fotosintese X2",2,"Fotosintese"],
     [Infinity]
 ];
 
@@ -139,15 +140,31 @@ function update_coisas(){
 let aside_main = [ //CRIA ASIDE MAIN
     ["clickador de coisas",0.03,10,"",svg_0],
     ["lambedor de coisas",0.22,120,"",svg_1],
-    ["coisa trabalhista",1.1,1000,"",svg_2],
-    ["fotosintese de coisa",12,5500,"",svg_3]];
+    ["coisa trabalhista",1.4,1400,"",svg_2],
+    ["fotosintese de coisa",10,5500,"",svg_3]];
+
+let mcfdc_botao_aside_anterior = 1;
+let mcfdc_botao_aside_now = 1;
 
 fazer_aside_main();
 function fazer_aside_main(){
     let i = 0;
-    document.getElementById('aside_main').innerHTML = ``;
+    document.getElementById('aside_main').innerHTML = 
+    `<div class="multiplicador_comprar_fazedores_de_coisas_botao_aside" id="">
+        <div class="content_mcfdc_botao_aside" id="content_mcfdc_botao_aside${1}" onclick="mudar_mcfdc_botao_aside(${1});">
+            1
+        </div>
+        <div class="content_mcfdc_botao_aside" id="content_mcfdc_botao_aside${10}" onclick="mudar_mcfdc_botao_aside(${10});">
+            10
+        </div>
+        <div class="content_mcfdc_botao_aside" id="content_mcfdc_botao_aside${100}" onclick="mudar_mcfdc_botao_aside(${100});">
+            100
+        </div>
+    </div>`;
+    mudar_mcfdc_botao_aside(mcfdc_botao_aside_now)
+
     aside_main.map((x)=>{
-        document.getElementById('aside_main').innerHTML += `<div class="botao_aside" onclick="comprar_fazedores_de_coisas(${x[1]},${x[2]},'${x[0]}',${i});">
+        document.getElementById('aside_main').innerHTML += `<div class="botao_aside" onclick="comprar_fazedores_de_coisas(${x[1]},'${x[0]}',${i});">
             <div class="esquerdo_botao_aside">
                 <div class="esquerdo_esquerdo_botao_aside" id="esquerdo_esquerdo_botao_aside${i}">
                     ${x[3]}
@@ -164,18 +181,40 @@ function fazer_aside_main(){
     });
 }
 
+const mcfdc_botao_aside = document.getElementById(`content_mcfdc_botao_aside${1}`);
+mcfdc_botao_aside.style.backgroundColor = "whitesmoke";
+mcfdc_botao_aside.style.color = "black";
+
+function mudar_mcfdc_botao_aside(multiplicador_mcfdc_botao_aside){
+
+    const mcfdc_botao_aside_anteiror = document.getElementById(`content_mcfdc_botao_aside${mcfdc_botao_aside_anterior}`);
+    mcfdc_botao_aside_anteiror.style.backgroundColor = "#ffffff60";
+    mcfdc_botao_aside_anteiror.style.color = "white";
+    mcfdc_botao_aside_anterior = multiplicador_mcfdc_botao_aside;
+
+    const mcfdc_botao_aside = document.getElementById(`content_mcfdc_botao_aside${multiplicador_mcfdc_botao_aside}`);
+    mcfdc_botao_aside.style.backgroundColor = "whitesmoke";
+    mcfdc_botao_aside.style.color = "black";
+
+    mcfdc_botao_aside_now = multiplicador_mcfdc_botao_aside;
+    
+    
+}
 
 
-function comprar_fazedores_de_coisas(income,cost,name_passive_income,index){
-    if (coisas_$ >= cost){
-        coisas_$ -= cost;
-        passive_income(name_passive_income,income);
-
-        aside_main[index][3] = Number(aside_main[index][3]) + 1;
-        aside_main[index][2] = (Number(aside_main[index][2]) + (0.1 * Number(aside_main[index][2]))).toFixed(0);
-
-        fazer_aside_main();     
-    } else{
-        warning_for_not_enough_money();
+function comprar_fazedores_de_coisas(income,name_passive_income,index){
+    for (let i5 = 1; i5 <= mcfdc_botao_aside_now; i5++){
+        if (coisas_$ >= (Number(aside_main[index][2]) + (0.1 * Number(aside_main[index][2]))).toFixed(0)){
+            coisas_$ -= (Number(aside_main[index][2]) + (0.1 * Number(aside_main[index][2]))).toFixed(0);
+            passive_income(name_passive_income,income);
+    
+            aside_main[index][3] = Number(aside_main[index][3]) + 1;
+            aside_main[index][2] = (Number(aside_main[index][2]) + (0.1 * Number(aside_main[index][2]))).toFixed(0);
+    
+            fazer_aside_main();     
+        } else{
+            warning_for_not_enough_money();
+        }
     }
+    
 }

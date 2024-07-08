@@ -77,6 +77,41 @@
     user-select: none;
     position: relative;
 }
+.multiplicador_comprar_fazedores_de_coisas_botao_aside{
+    width: 100%;
+    height: 25px;
+
+    border-image: linear-gradient(to left, #5e5e5e, #232629); /* imagem do border */
+    border-style: solid;    
+    border-image-slice: 1; 
+    border-width: 3px;
+    background: linear-gradient(to left, #53535590, #3434429b); /* imagem do border */
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.content_mcfdc_botao_aside{
+    height: 100%;
+    width: 30%;
+    background-color: #ffffff60;
+    color: white;
+
+    border-image: linear-gradient(to left, #777777, #535b63); /* imagem do border */
+    border-style: solid;    
+    border-image-slice: 1; 
+    border-width: 1px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
+}
 .mostrarclicadadequantoganhou{
     height: 20px;
     width: 20px;
@@ -369,12 +404,16 @@ aside{
 }
 .aside_main{
     height: auto;
-    width: 100%;
+    width: 95%;
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     margin-top: 10px;
+    border: 1px solid #1aa29d;
+    background: linear-gradient(to right, #18181a, #3a5858b2); /* imagem do border */
+    box-shadow: 3px 3px 10px rgba(91, 255, 228, 0.39);
 }
 header{
     height: var(--header_higth);
