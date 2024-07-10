@@ -204,8 +204,8 @@ function mudar_mcfdc_botao_aside(multiplicador_mcfdc_botao_aside){
 
 function comprar_fazedores_de_coisas(income,name_passive_income,index){
     for (let i5 = 1; i5 <= mcfdc_botao_aside_now; i5++){
-        if (coisas_$ >= (Number(aside_main[index][2]) + (0.1 * Number(aside_main[index][2]))).toFixed(0)){
-            coisas_$ -= (Number(aside_main[index][2]) + (0.1 * Number(aside_main[index][2]))).toFixed(0);
+        if (coisas_$ >= Number(aside_main[index][2])){
+            coisas_$ -= Number(aside_main[index][2]);
             passive_income(name_passive_income,income);
     
             aside_main[index][3] = Number(aside_main[index][3]) + 1;
