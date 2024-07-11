@@ -64,12 +64,13 @@ setInterval(see_new_upgrades, 150);
 
 let index_last_upgrade = 0; // CRIA ASIDE UPGRADE
 let lista_last_upgrade = [
-    [120,"Click +100%",2,"Click"],[200,"Clickador +100%",2,"Clickador"],[300,"Click +100%",2,"Click"],
-    [450,"Click +100%",2,"Click"],[500,"Clickador +100%",2,"Clickador"],[750,"Click +100%",2,"Click"],
-    [800,"Clickador +100%",2,"Clickador"],[1000,"Lambedor +50%",1.5,"Lambedor"],[1100,"Click X4",4,"Click"],
-    [1500,"Lambedor +50%",1.5,"Lambedor"],[1550,"Clickador +100%",2,"Clickador"],[1600,"Trabalhista X3",3,"Trabalhista"],
-    [4000,"Lambedor X2",2,"Lambedor"],[6000,"Click X4",4,"Click"],[20000,"Fotosintese +50%",1.5,"Fotosintese"],
-    [40000,"Click X10",10,"Click"],[50000,"Fotosintese X2",2,"Fotosintese"],
+    [120,"Click +100%",2,"Click"],[200,"Clickador +100%",2,"Clickador"],
+    [450,"Click +100%",2,"Click"],[500,"Clickador X2",2,"Clickador"],
+    [1000,"Lambedor +50%",1.5,"Lambedor"],[1100,"Click X4",4,"Click"],
+    [2000,"Lambedor +50%",1.5,"Lambedor"],[1550,"Clickador +100%",2,"Clickador"],[4000,"Lambedor X2",2,"Lambedor"],
+    [6000,"Click X6",6,"Click"],[10000,"Trabalhista X3",3,"Trabalhista"],
+    [30000,"Fotosintese +50%",1.5,"Fotosintese"],
+    [50000,"Click X10",10,"Click"],[100000,"Fotosintese X2",2,"Fotosintese"],
     [Infinity]
 ];
 
@@ -140,8 +141,9 @@ function update_coisas(){
 let aside_main = [ //CRIA ASIDE MAIN
     ["clickador de coisas",0.03,10,"",svg_0],
     ["lambedor de coisas",0.22,120,"",svg_1],
-    ["coisa trabalhista",1.4,1400,"",svg_2],
-    ["fotosintese de coisa",10,5500,"",svg_3]];
+    ["coisa trabalhista",1.4,1800,"",svg_2],
+    ["fotosintese de coisa",10,15000,"",svg_3]
+];
 
 let mcfdc_botao_aside_anterior = 1;
 let mcfdc_botao_aside_now = 1;
@@ -209,7 +211,7 @@ function comprar_fazedores_de_coisas(income,name_passive_income,index){
             passive_income(name_passive_income,income);
     
             aside_main[index][3] = Number(aside_main[index][3]) + 1;
-            aside_main[index][2] = (Number(aside_main[index][2]) + (0.1 * Number(aside_main[index][2]))).toFixed(0);
+            aside_main[index][2] = (Number(aside_main[index][2]) + (0.08 * Number(aside_main[index][2]))).toFixed(0);
     
             fazer_aside_main();     
         } else{

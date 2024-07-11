@@ -300,11 +300,11 @@ function excluir_botao_aside_upgrade(id) {
 }
 
 let index_circulo_little = 0;
+let index_coisa_trabalhista_effect = 0;
 function circuloclicada(){
     coisas_$ += 1 * BUFF_clickar_$;
     
-    Circulo_effects_when_clicked();
-    index_circulo_little++;
+    see_what_effects_to_play();
 
     animate_the_arrow();
     animate_the_arrow2();
@@ -312,7 +312,55 @@ function circuloclicada(){
     animate_the_arrow4();
 
 }
+function see_what_effects_to_play(){
+    Circulo_effects_when_clicked();
 
+    if(Number(aside_main[2][3]) > num_aleatorio(1,50) && num_aleatorio(1,10) > 4){
+        coisa_trabalhista_effect();
+    }
+
+}
+function coisa_trabalhista_effect(){
+    document.getElementById(`main`).innerHTML += `<img src="./IMGs/mining gif/frame0.png" alt="mining_png" class="coisa_trabalhista_effect" id="coisa_trabalhista_effect${index_coisa_trabalhista_effect}"></div>`;
+    const coisa_trabalhista_effect = document.getElementById(`coisa_trabalhista_effect${index_coisa_trabalhista_effect}`);
+    eventoX = (parseInt(event.pageX) - 45);
+    eventoY = (parseInt(event.pageY) - 35);
+    X = eventoX + 'px';
+    coisa_trabalhista_effect.style.left = X;
+
+    coisa_trabalhista_effect.style.transform = `rotate(${num_aleatorio(1,360)}deg)`;
+
+    Y = eventoY + 'px';
+    coisa_trabalhista_effect.style.top = Y;
+
+
+    animacao_coisa_trabalhista_effect(index_coisa_trabalhista_effect,X,Y);
+    Remove_coisa_trabalhista_effect(index_coisa_trabalhista_effect);
+
+    index_coisa_trabalhista_effect++;
+}
+function animacao_coisa_trabalhista_effect(index_coisa_trabalhista_effect,eventoX,eventoY){
+    eventoX = parseInt(eventoX);
+    eventoY = parseInt(eventoY);
+    for(let i6 = 1;i6 <= 4; i6++){
+        setTimeout(() => {
+            const div2 = document.getElementById(`coisa_trabalhista_effect${index_coisa_trabalhista_effect}`);
+
+            div2.style.opacity = `${1 - (0.26 * (i6 - 1))}`;
+            div2.src = `./IMGs/mining gif/frame${i6}.png`;
+
+        },60 * i6);
+    }
+}
+function Remove_coisa_trabalhista_effect(index_coisa_trabalhista_effect){
+    setTimeout(() => {
+        const main = document.getElementById('main');
+        const coisa_trabalhista_effect2 = document.getElementById(`coisa_trabalhista_effect${index_coisa_trabalhista_effect}`);
+
+        main.removeChild(coisa_trabalhista_effect2); 
+    }, 290);
+    
+}
 function Circulo_effects_when_clicked(){
     document.getElementById(`main`).innerHTML += `<div class="circulo_little" id="circulo_little${index_circulo_little}"></div>`;
     document.getElementById(`main`).innerHTML += `<div class="mostrarclicadadequantoganhou" id="mostrarclicadadequantoganhou${index_circulo_little}">+${1 * BUFF_clickar_$}</div>`;
@@ -374,6 +422,7 @@ function Circulo_effects_when_clicked(){
 
     Remove_CirculoANDmcdqg_effects(index_circulo_little,delay_animation);
       
+    index_circulo_little++;
 }
 
 function Remove_CirculoANDmcdqg_effects(index_c_l,delay_animation){

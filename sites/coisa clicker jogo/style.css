@@ -1,7 +1,16 @@
 
 
 
-
+.coisa_trabalhista_effect{
+    position: absolute;
+    user-select: none;
+    cursor: none;
+    pointer-events: none; 
+    display: flex;
+    height: 70px;
+    width: 90px;
+    opacity: 1;
+}
 .arrow_structure, .arrow_structure2, .arrow_structure3, .arrow_structure4{
     width: 30px;
     /* background-color: #3db3c5; */
