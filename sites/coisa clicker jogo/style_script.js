@@ -2,8 +2,61 @@
 
 
 
+setInterval(tick_update,10);
 
+ticks1000_of_tick_update = 10;
 
+function tick_update(){
+    update_coisas();
+    animate_the_rotate();
+    animate_the_background();
+
+    switch (ticks1000_of_tick_update){
+        case 170:
+            animate_the_arrow4();
+            break;
+        case 270:
+            animate_the_arrow3();
+            animate_the_arrow
+            break;
+        case 400:
+            animate_the_arrow2();
+            animate_the_arrow3();
+            animate_the_arrow4();
+            see_new_upgrades();
+            break;
+        case 830:
+            animate_the_arrow();
+            animate_the_arrow2();
+            animate_the_arrow3();
+            animate_the_arrow4();
+            break;
+        default:
+            break;
+    }
+    if (ticks1000_of_tick_update == 1000){
+        ticks1000_of_tick_update = 10;
+    }else{
+        ticks1000_of_tick_update += 10;
+    }
+
+}
+for(let i3 = 0; i3 < 1; i3++){
+    document.getElementById('the_shop_content').innerHTML += `<div class="button_the_shop"></div>`;
+}
+let Abrir_Shop_waiting = 0;
+function Abrir_Shop(){
+    const the_shop = document.getElementById('the_shop');
+    the_shop.style.display = "flex";
+    
+    if(Abrir_Shop_waiting == 0){
+        Abrir_Shop_waiting = 1;
+        body.appendChild(the_shop);        
+    }else{
+        the_shop.style.display = "none";
+        Abrir_Shop_waiting = 0;
+    }
+}
 
 let box_question_in_out = 0;
 function question_button(){
@@ -23,22 +76,52 @@ function question_button(){
 function content_question_button(){
    setTimeout(() => {
     document.getElementById('box_question').innerHTML = ``;
-    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_0}Clickador: ${(10 * (clickador_de_coisas_passive_income * BUFF_clickador_de_coisas_passive_income)).toFixed(1)}/s (${(((10 * (clickador_de_coisas_passive_income * BUFF_clickador_de_coisas_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
-    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_1}Lambedor: ${(10 * (lambedor_de_coisas_passive_income * BUFF_lambedor_de_coisas_passive_income)).toFixed(1)}/s (${(((10 * (lambedor_de_coisas_passive_income * BUFF_lambedor_de_coisas_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
-    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_2}Trabalhista: ${(10 * (coisa_trabalhista_passive_income * BUFF_coisa_trabalhista_passive_income)).toFixed(1)}/s (${(((10 * (coisa_trabalhista_passive_income * BUFF_coisa_trabalhista_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
-    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_3}Fotosintese: ${(10 * (fotosintese_de_coisa_passive_income * BUFF_fotosintese_de_coisa_passive_income)).toFixed(1)}/s (${(((10 * (fotosintese_de_coisa_passive_income * BUFF_fotosintese_de_coisa_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_0}Clickador: ${Number_Display_Simplified((10 * (clickador_de_coisas_passive_income * BUFF_clickador_de_coisas_passive_income)) , 1)}/s (${(((10 * (clickador_de_coisas_passive_income * BUFF_clickador_de_coisas_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_1}Comeia: ${Number_Display_Simplified((10 * (lambedor_de_coisas_passive_income * BUFF_lambedor_de_coisas_passive_income)) , 1)}/s (${(((10 * (lambedor_de_coisas_passive_income * BUFF_lambedor_de_coisas_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_2}Trabalhista: ${Number_Display_Simplified((10 * (coisa_trabalhista_passive_income * BUFF_coisa_trabalhista_passive_income)) , 1)}/s (${(((10 * (coisa_trabalhista_passive_income * BUFF_coisa_trabalhista_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
+    document.getElementById('box_question').innerHTML += `<div class="content_box_question">${svg_3}Fotosintese: ${Number_Display_Simplified((10 * (fotosintese_de_coisa_passive_income * BUFF_fotosintese_de_coisa_passive_income)) , 1)}/s (${(((10 * (fotosintese_de_coisa_passive_income * BUFF_fotosintese_de_coisa_passive_income))/(current_income * 10)) * 100).toFixed(1)}%)</div>`;
  
     }, 10);
 }
 
+let i_animate_the_background = 0;
+function animate_the_background(){
+    const background_structure = document.getElementById('background_structure');
+    background_structure.style.paddingLeft = `${(i_animate_the_background + 500)  + 'px'}`;
+    
+    if(i_animate_the_background == 800){
+        i_animate_the_background = 0;
+    }else{
+        i_animate_the_background++
+    }
+}
+let i_appear_honey_structure = 0;
+let honeycome_1 = `<img src="./IMGs/honeycombs/image.png" alt="honey"></img>`; 
+let MAX_svg_1 = ``;
+for(let i3 = 0;i3< 13;i3++){
+    MAX_svg_1 += honeycome_1;
+}
+document.getElementById('body3').innerHTML += '<div class="background_structure" id="background_structure"></div>';
+document.getElementById('background_structure').style.transform = `rotate(-12deg)`;
+let i_appear_honey_structure222 = 1;
+function appear_honey_structure(){
+    if(i_appear_honey_structure222 == 3 && i_appear_honey_structure / 3 <= 8){
+        if (i_appear_honey_structure%2 == 0){
+            document.getElementById('background_structure').innerHTML += `<div class="image_background_structure" id="image_background_structure${i_appear_honey_structure}">${MAX_svg_1}</div>`;
+        }else{
+            document.getElementById('background_structure').innerHTML += `<div class="image_background_structure2" id="image_background_structure${i_appear_honey_structure}">${MAX_svg_1}</div>`;
+        }
+        i_appear_honey_structure222 = 1;
+    }else{
+        i_appear_honey_structure222++;
+    }
+    i_appear_honey_structure++;
+}
 
-
-
-
-document.getElementById('main').innerHTML += '<div class="cursors_structure" id="cursors_structure"></div>';
-document.getElementById('main').innerHTML += '<div class="cursors_structure2" id="cursors_structure2"></div>';
-document.getElementById('main').innerHTML += '<div class="cursors_structure3" id="cursors_structure3"></div>';
-document.getElementById('main').innerHTML += '<div class="cursors_structure4" id="cursors_structure4"></div>';
+document.getElementById('body2').innerHTML += '<div class="cursors_structure" id="cursors_structure"></div>';
+document.getElementById('body2').innerHTML += '<div class="cursors_structure2" id="cursors_structure2"></div>';
+document.getElementById('body2').innerHTML += '<div class="cursors_structure3" id="cursors_structure3"></div>';
+document.getElementById('body2').innerHTML += '<div class="cursors_structure4" id="cursors_structure4"></div>';
 
 for(let i3 = 0; i3 < 24; i3++){
     document.getElementById('cursors_structure').innerHTML += `<div class="arrow_structure" id="arrow_structure${i3}">${svg_0}</div>`;
@@ -65,39 +148,23 @@ for(let i3 = 110; i3 < 170; i3++){
     arrow_structure.style.transform = `rotate(${(6 * i3) + 'deg'})`;
 }
 
-setInterval(animate_the_rotate, 10);
 
-setInterval(animate_the_arrow, 600);
-setInterval(animate_the_arrow, 933);
-
-setInterval(animate_the_arrow2, 300);
-setInterval(animate_the_arrow2, 633);
-
-setInterval(animate_the_arrow3, 300);
-setInterval(animate_the_arrow3, 633);
-setInterval(animate_the_arrow3, 275);
-
-setInterval(animate_the_arrow4, 300);
-setInterval(animate_the_arrow4, 533);
-setInterval(animate_the_arrow4, 175);
-
-
-let i3 = 0;
+let i_appear_arrow_structure = 0;
 function  appear_arrow_structure(){
-    if(i3 < 24){
-        const arrow_structure = document.getElementById(`arrow_structure${i3}`);
+    if(i_appear_arrow_structure < 24){
+        const arrow_structure = document.getElementById(`arrow_structure${i_appear_arrow_structure}`);
         arrow_structure.style.display = "flex";
-    }else if(i3 < 60){
-        const arrow_structure2 = document.getElementById(`arrow_structure2${i3}`);
+    }else if(i_appear_arrow_structure < 60){
+        const arrow_structure2 = document.getElementById(`arrow_structure2${i_appear_arrow_structure}`);
         arrow_structure2.style.display = "flex";
-    }else if(i3 < 110){
-        const arrow_structure3 = document.getElementById(`arrow_structure3${i3}`);
+    }else if(i_appear_arrow_structure < 110){
+        const arrow_structure3 = document.getElementById(`arrow_structure3${i_appear_arrow_structure}`);
         arrow_structure3.style.display = "flex";
-    }else if(i3 < 170){
-        const arrow_structure4 = document.getElementById(`arrow_structure4${i3}`);
+    }else if(i_appear_arrow_structure < 170){
+        const arrow_structure4 = document.getElementById(`arrow_structure4${i_appear_arrow_structure}`);
         arrow_structure4.style.display = "flex";
     }
-    i3++;
+    i_appear_arrow_structure++;
 }
 
 
@@ -299,8 +366,6 @@ function excluir_botao_aside_upgrade(id) {
     botao_aside_upgrade.style.display = "none";
 }
 
-let index_circulo_little = 0;
-let index_coisa_trabalhista_effect = 0;
 function circuloclicada(){
     coisas_$ += 1 * BUFF_clickar_$;
     
@@ -320,24 +385,33 @@ function see_what_effects_to_play(){
     }
 
 }
+for(let i3 = 0; i3 < 5;i3++){
+    document.getElementById(`body4`).innerHTML += `<img src="./IMGs/mining_gif/mining_gif.gif" alt="mining_gif" class="coisa_trabalhista_effect" id="coisa_trabalhista_effect${i3}"></div>`;
+}
+let index_coisa_trabalhista_effect = 0;
 function coisa_trabalhista_effect(){
-    document.getElementById(`main`).innerHTML += `<img src="./IMGs/mining gif/frame0.png" alt="mining_png" class="coisa_trabalhista_effect" id="coisa_trabalhista_effect${index_coisa_trabalhista_effect}"></div>`;
     const coisa_trabalhista_effect = document.getElementById(`coisa_trabalhista_effect${index_coisa_trabalhista_effect}`);
-    eventoX = (parseInt(event.pageX) - 45);
-    eventoY = (parseInt(event.pageY) - 35);
-    X = eventoX + 'px';
-    coisa_trabalhista_effect.style.left = X;
+    eventoX = (parseInt(event.pageX) - 45) + 'px' ;
+    eventoY = (parseInt(event.pageY) - 60) + 'px';
+
+    // coisa_trabalhista_effect.src = coisa_trabalhista_effect.src.split('?')[0] + '?' + new Date().getTime();
+
+    coisa_trabalhista_effect.style.left = eventoX;
 
     coisa_trabalhista_effect.style.transform = `rotate(${num_aleatorio(1,360)}deg)`;
 
-    Y = eventoY + 'px';
-    coisa_trabalhista_effect.style.top = Y;
+    coisa_trabalhista_effect.style.top = eventoY;
 
+    coisa_trabalhista_effect.style.display = "flex";
 
     animacao_coisa_trabalhista_effect(index_coisa_trabalhista_effect,X,Y);
     Remove_coisa_trabalhista_effect(index_coisa_trabalhista_effect);
 
-    index_coisa_trabalhista_effect++;
+    if(index_coisa_trabalhista_effect == 4){
+        index_coisa_trabalhista_effect = 0;
+    }else{
+        index_coisa_trabalhista_effect++;
+    }
 }
 function animacao_coisa_trabalhista_effect(index_coisa_trabalhista_effect,eventoX,eventoY){
     eventoX = parseInt(eventoX);
@@ -346,27 +420,33 @@ function animacao_coisa_trabalhista_effect(index_coisa_trabalhista_effect,evento
         setTimeout(() => {
             const div2 = document.getElementById(`coisa_trabalhista_effect${index_coisa_trabalhista_effect}`);
 
-            div2.style.opacity = `${1 - (0.26 * (i6 - 1))}`;
-            div2.src = `./IMGs/mining gif/frame${i6}.png`;
-
-        },60 * i6);
+            div2.style.opacity = `${1 - (0.2 * (i6 - 1))}`;
+            // div2.src = `./IMGs/mining_gif/frame${i6}.png`;
+            
+        },30 * i6);
     }
 }
 function Remove_coisa_trabalhista_effect(index_coisa_trabalhista_effect){
     setTimeout(() => {
-        const main = document.getElementById('main');
         const coisa_trabalhista_effect2 = document.getElementById(`coisa_trabalhista_effect${index_coisa_trabalhista_effect}`);
-
-        main.removeChild(coisa_trabalhista_effect2); 
+        coisa_trabalhista_effect2.style.display = "none";
     }, 290);
     
 }
+for(let i3 = 0; i3 < 20; i3++){
+    document.getElementById(`main`).innerHTML += `<div class="circulo_little" id="circulo_little${i3}"></div>`;
+    document.getElementById(`main`).innerHTML += `<div class="mostrarclicadadequantoganhou" id="mostrarclicadadequantoganhou${i3}"></div>`;
+}
+let index_circulo_little = 0;
+let directionX = 1;
 function Circulo_effects_when_clicked(){
-    document.getElementById(`main`).innerHTML += `<div class="circulo_little" id="circulo_little${index_circulo_little}"></div>`;
-    document.getElementById(`main`).innerHTML += `<div class="mostrarclicadadequantoganhou" id="mostrarclicadadequantoganhou${index_circulo_little}">+${1 * BUFF_clickar_$}</div>`;
-
+    
     const div = document.getElementById(`circulo_little${index_circulo_little}`);
     const mcdqg = document.getElementById(`mostrarclicadadequantoganhou${index_circulo_little}`); //mostrarclicadadequantoganhou = mcdqg
+    div.style.display = "flex";
+    mcdqg.style.display = "flex";
+
+    mcdqg.textContent = `+${1 * BUFF_clickar_$}`;
 
     eventoX = (parseInt(event.pageX) - 10);
     eventoY = (parseInt(event.pageY) - 10);
@@ -422,21 +502,21 @@ function Circulo_effects_when_clicked(){
 
     Remove_CirculoANDmcdqg_effects(index_circulo_little,delay_animation);
       
-    index_circulo_little++;
+    if(index_circulo_little == 19){
+        index_circulo_little = 0;
+    }else{
+        index_circulo_little++;
+    }
 }
 
 function Remove_CirculoANDmcdqg_effects(index_c_l,delay_animation){
     setTimeout(() => {
-        const main = document.getElementById('main');
         const Circulo_effects = document.getElementById(`circulo_little${index_c_l}`);
-
-        main.removeChild(Circulo_effects); 
+        Circulo_effects.style.display = "none";
     }, 120 * delay_animation);
     setTimeout(() => {
-        const main = document.getElementById('main');
         const mcdqg2 = document.getElementById(`mostrarclicadadequantoganhou${index_c_l}`);
-
-        main.removeChild(mcdqg2); 
+        mcdqg2.style.display = "none";
     }, 400 * delay_animation);
     
 }
