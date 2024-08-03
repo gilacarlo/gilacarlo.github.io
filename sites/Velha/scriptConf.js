@@ -38,7 +38,7 @@ function reset(){
     document.getElementById('grid-container').innerHTML = ``;
     X = 1, Y = 1;
     for(let i = 0; i < X_totalPlaces * Y_totalPlaces; i++){
-        document.getElementById('grid-container').innerHTML += `<div class="grid-item" id="grid-item[${X - 1},${Y - 1}]" onclick="XOdetected([${X - 1},${Y - 1}]);"></div>`;
+        document.getElementById('grid-container').innerHTML += `<div class="grid-item" id="grid-item[${X - 1},${Y - 1}]" onclick="if(gameEndedTF==false){XOdetected([${X - 1},${Y - 1}])};"></div>`;
         if(X == X_totalPlaces){
             X = 1;
             Y++
