@@ -11,26 +11,48 @@
 
     <div class="configuracao" id="configuracao">
         <div class="close_configuracao2" id="close_configuracao2" onclick="closeOpenConfiguration();">↑</div>
-        <h3>Configurações</h3>
+        <h3>Configurations.</h3>
         <div class="input-group">
-            <label for="input1">Eixo X:</label>
+            <label for="input1">↔ X:</label>
             <input type="number" id="input1" min="0" step="1" value="3">
         </div>
         <div class="input-group">
-            <label for="input2">Eixo Y:</label>
+            <label for="input2">↕ Y:</label>
             <input type="number" id="input2" min="0" step="1" value="3">
         </div>
         <div class="input-group">
-            <label for="input3">Quan. para ganhar:</label>
+            <label for="input3">Amount to win:</label>
             <input type="number" id="input3" min="0" step="1" value="3">
         </div>
         <div class="input-group">
+            <label for="dropdown">Game mode:</label>
             <select id="dropdown">
                 <option value="TicTacToe">TicTacToe</option>
                 <option value="Lig4">Lig4</option>
                 <!-- <option value="opcao3"></option> -->
             </select>
         </div>
+        <div class="decoration_line"></div>
+        
+        <div class="close_configuracao3" id="close_configuracao3" onclick="closeOpenConfiguration2();">↓</div>
+        <div class="configuracao2" id="configuracao2">
+            <h3>Extras.</h3>
+
+            <div class="input-group" id="input-group">
+                <label for="radio0">Nothing:</label>
+                <input type="radio" id="radio0" name="options" value="0" onclick="changeExtras(0);" checked>
+            </div>
+            <div class="input-group" id="input-group">
+                <label for="radio1">Blocking wall:</label>
+                <input type="radio" id="radio1" name="options" value="1" onclick="changeExtras(1);">
+                <svg width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#5a5a5a65" d="M494 18.02l-101 .103V119h101zm-119 .12l-238 .247V119h238zm-256 .266L18 18.51V119h101zM18 137v110h229V137zm247 0v110h229V137zM18 265v110h101V265zm119 0v110h238V265zm256 0v110h101V265zM18 393v100.98l229-.236V393zm247 0v100.727l229-.237V393z"/></svg>
+            </div>
+            <!-- <div class="input-group" id="input-group">
+                <label for="radio2">Bomb:</label>
+                <input type="radio" id="radio2" name="options" value="2" onclick="changeExtras(2);" >
+            </div> -->
+        </div>
+
     </div>
     <div class="close_configuracao" id="close_configuracao" onclick="closeOpenConfiguration();">↓</div>
 
@@ -39,7 +61,7 @@
 
         </div>
         <div class="reiniciar" onclick="reset();">
-            RESTART
+            RESET
         </div>
     </div>
    
@@ -49,7 +71,9 @@
 
 
     <script src="script.js"></script>
-    <script src="scriptConf.js"></script>
+    <script src="scriptReset.js"></script>
+    <script src="scriptStyleHtml.js"></script>
+
 
 
 </body>

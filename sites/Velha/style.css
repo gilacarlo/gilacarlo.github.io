@@ -1,3 +1,6 @@
+*{
+    padding: 0px; margin: 0px; box-sizing: border-box;
+}
 body {
     display: flex;
     justify-content: center;
@@ -9,18 +12,21 @@ body {
 :root {
     --X: 0;
     --Y: 0;
-}
+    --grid-item-color: rgba(0, 0, 0, 0);
 
+}
+h3{
+    margin:0 0 10px 0;
+}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(var(--X), 100px);
     grid-template-rows: repeat(var(--Y), 100px);
     gap: 5px;
-
     /* position: fixed; */
 }
 
-.grid-item {
+.grid-item{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,16 +35,21 @@ body {
     font-size: 2rem;
     cursor: pointer;
     user-select: none;
+    box-shadow: 0px 0px 5px var(--grid-item-color);
 }
 .grid-item svg{
-    height: 70%;
-    width: 70%;
+    height: 80%;
+    width: 80%;
 }
 .X{
     fill: rgb(0, 149, 255);
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
 }
 .O{
+    fill: rgb(233, 25, 25);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+.Wall{
     fill: rgb(233, 25, 25);
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
 }
@@ -57,7 +68,7 @@ body {
 }
 
 
-.configuracao, .close_configuracao {
+.configuracao, .close_configuracao{
     position: fixed;
     top: 10px;
     right: 10px;
@@ -69,41 +80,62 @@ body {
 
     flex-direction: column;
 }
-.configuracao{
+.configuracao, .configuracao2{
     display: none;
     justify-content: center;
     align-items: flex-start;
-    width: 200px;
-    cursor: pointer;
-
+    width: 250px;
 }
-.close_configuracao, .close_configuracao2{
+.configuracao2{
+    align-self: center;
+    padding: 0 10px 10px 10px;
+    flex-direction: inherit;
+}
+.close_configuracao, .close_configuracao2, .close_configuracao3{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 250px;
     cursor: pointer;
     user-select: none;
-
 }
+.close_configuracao2, .close_configuracao3{
+    align-self: center;
+}
+
 
 
 .input-group {
     margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+.input-group svg{
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    /* filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5)); */
+    /* background-color: #5a5a5a65; */
 }
 
 input[type="number"] {
-    width: 80px;
-    padding: 5px;
+    width: 40px;
     font-size: 16px;
     border-radius: 4px;
     border: 1px solid #ccc;
 }
-
-select {
-    width: 100%;
+input[type="number"], input[type="checkbox"], input[type="radio"], select{
+    margin-left: 5px;
     padding: 5px;
-    font-size: 16px;
+    min-height: 18px;
+    min-width: 18px;
+}
+select {
+    width: 50%;
+    font-size: 14px;
     border-radius: 4px;
     border: 1px solid #ccc;
 }
@@ -158,4 +190,10 @@ select {
 .displayMesenge_content svg{
     height: 20vh;
     width: 20vh; 
+}
+.decoration_line{
+    height: 1px;
+    width: calc(100% - 10px);
+    background-color: black;
+    margin-bottom: 5px;
 }
