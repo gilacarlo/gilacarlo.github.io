@@ -81,7 +81,7 @@ closeOpenConfiguration2();
 
 function changeExtras(checkBox){
     if(roundsPlayed != 0){
-        reset();
+        reset("softReset");
     }
     switch (checkBox) {
         case 0:
