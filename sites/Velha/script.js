@@ -53,7 +53,7 @@ function XOdetected(XYindex){
             }
             console.log("wfewe",ExtraroundsPlayedbackup, ExtraroundsPlayed);
             
-        }else if(Extra == 1){
+        }else if(Extra != 0){
             ExtraroundsPlayed++;
         }
         
