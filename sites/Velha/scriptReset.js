@@ -3,14 +3,14 @@ const inputEixoY = document.getElementById('input2');
 const inputquantParaGanhar = document.getElementById('input3');
 const inputgameMode = document.getElementById('dropdown');
 
-inputEixoX.addEventListener('input', reset);
-inputEixoY.addEventListener('input', reset);
-inputquantParaGanhar.addEventListener('input', reset);
-inputgameMode.addEventListener('input', reset);
+inputEixoX.addEventListener('input', function() {reset();});
+inputEixoY.addEventListener('input', function() {reset();});
+inputquantParaGanhar.addEventListener('input', function() {reset("softReset");});
+inputgameMode.addEventListener('input', function() {reset("softReset"   );});
 
 
 let gridContainer = ``;
-function reset(){
+function reset(condition = "hardReset"){
     grid = [];
     all_TotalPlaces = 0;
     X_totalPlaces = inputEixoX.value;
@@ -18,7 +18,6 @@ function reset(){
     inARowToWin = inputquantParaGanhar.value;
     gameMode = inputgameMode.value;
     currentTurn = _X_svg;
-    roundsPlayed = 0;
     gameEndedTF = false;
     ExtraroundsPlayed = 0;
     
@@ -42,20 +41,30 @@ function reset(){
     document.documentElement.style.setProperty('--Y', Y_totalPlaces);
     document.documentElement.style.setProperty('--grid-item-color', `rgb(32, 62, 255)`);
     
-
-    X = 1, Y = 1;
-    gridContainer = ``;
-    for(let i = 0; i < X_totalPlaces * Y_totalPlaces; i++){
-        gridContainer += `<div class="grid-item" id="grid-item[${X - 1},${Y - 1}]" onclick="if(gameEndedTF==false){XOdetected([${X - 1},${Y - 1}])};"></div>`;
-        if(X == X_totalPlaces){
-            X = 1;
-            Y++
-        }else{
-            X++
+    if(condition == "hardReset"){
+        console.log("fewfwef")
+        X = 1, Y = 1;
+        gridContainer = ``;
+        for(let i = 0; i < X_totalPlaces * Y_totalPlaces; i++){
+            gridContainer += `<div class="grid-item" id="grid-item[${X - 1},${Y - 1}]" onclick="if(gameEndedTF==false){XOdetected([${X - 1},${Y - 1}])};"></div>`;
+            if(X == X_totalPlaces){
+                X = 1;
+                Y++
+            }else{
+                X++
+            }
         }
-    }
-    document.getElementById('grid-container').innerHTML = gridContainer;
+        Extragrid = gridContainer;
+        document.getElementById('grid-container').innerHTML = gridContainer;
+    }else
+    if(condition == "softReset"){
 
+        if(roundsPlayed == 0){
+            Extragrid = document.getElementById('grid-container').innerHTML;
+        }
+        document.getElementById('grid-container').innerHTML = Extragrid;
+    }
+    roundsPlayed = 0;
 
     for(let i = 0; i < X_totalPlaces * Y_totalPlaces; i++){
         grid.push([0,[[]]]);

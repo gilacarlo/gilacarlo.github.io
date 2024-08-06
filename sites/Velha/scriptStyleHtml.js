@@ -1,4 +1,4 @@
-
+let checkboxchecked = 0;
 function gameEnded(state){
     if(state == _X_svg){
         displayGameEnded(`WON`,_X_svg);
@@ -49,9 +49,11 @@ function closeOpenConfiguration(){
         Configuration.style.display = "none";
         openConfiguration.style.display = "flex";
     }
+
+    uncheckRadio(0);
 }
 
-const Configuration2 = document.getElementById('configuracao2');
+const Configuration2 = document.getElementById('configuracao');
 
 Configuration2.style.display = "none";
 
@@ -70,10 +72,12 @@ function closeOpenConfiguration2(){
         Configuration2.style.display = "none";
         openConfiguration2.textContent = "↓";
     }
+
+    uncheckRadio(0);
 }
 
-// closeOpenConfiguration();
-// closeOpenConfiguration2();
+closeOpenConfiguration();
+closeOpenConfiguration2();
 
 function changeExtras(checkBox){
     if(roundsPlayed != 0){
@@ -81,15 +85,34 @@ function changeExtras(checkBox){
     }
     switch (checkBox) {
         case 0:
-            Extra = checkBox;
+            uncheckRadio(checkBox);
             break;
         case 1:
-            Extra = checkBox;
+            uncheckRadio(checkBox);
             break;
         case 2:
-            Extra = checkBox;
+            uncheckRadio(checkBox);
             break;
         default:
             break;
+    }
+}
+function uncheckRadio(radioid){
+    const radio = document.getElementById(`checkbox${radioid}`);
+    for(let i = 1; i <= 2; i++){
+        document.getElementById(`checkbox${i}`).checked = false;
+    }
+    if(radioid == checkboxchecked){
+        Extra = 0;
+        checkboxchecked = 0;
+        if(radioid != 0){
+            radio.checked = false;
+        }
+    }else{
+        Extra = radioid;
+        checkboxchecked = radioid;
+        if(radioid != 0){
+            radio.checked = true;
+        }
     }
 }

@@ -38,18 +38,23 @@
         <div class="configuracao2" id="configuracao2">
             <h3>Extras.</h3>
 
+            <!-- <div class="input-group" id="input-group">
+                <label for="checkbox0">Nothing:</label>
+                <input type="checkbox" id="checkbox0" name="options" value="0" onclick="changeExtras(0);" checked>
+            </div> -->
             <div class="input-group" id="input-group">
-                <label for="radio0">Nothing:</label>
-                <input type="radio" id="radio0" name="options" value="0" onclick="changeExtras(0);" checked>
+                <label for="checkbox1">Blocking wall:</label>
+                <input type="checkbox" id="checkbox1" name="options" value="1" onclick="changeExtras(1);" >
+                <svg width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path class="Wall"  d="M494 18.02l-101 .103V119h101zm-119 .12l-238 .247V119h238zm-256 .266L18 18.51V119h101zM18 137v110h229V137zm247 0v110h229V137zM18 265v110h101V265zm119 0v110h238V265zm256 0v110h101V265zM18 393v100.98l229-.236V393zm247 0v100.727l229-.237V393z"/></svg>
             </div>
             <div class="input-group" id="input-group">
-                <label for="radio1">Blocking wall:</label>
-                <input type="radio" id="radio1" name="options" value="1" onclick="changeExtras(1);">
-                <svg width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#5a5a5a65" d="M494 18.02l-101 .103V119h101zm-119 .12l-238 .247V119h238zm-256 .266L18 18.51V119h101zM18 137v110h229V137zm247 0v110h229V137zM18 265v110h101V265zm119 0v110h238V265zm256 0v110h101V265zM18 393v100.98l229-.236V393zm247 0v100.727l229-.237V393z"/></svg>
+                <label for="checkbox2">+1 to win:</label>
+                <input type="checkbox" id="checkbox2" name="options" value="2" onclick="changeExtras(2);" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="plusonetowin" d="M278.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l9.4-9.4L224 224l-114.7 0 9.4-9.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-9.4-9.4L224 288l0 114.7-9.4-9.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-9.4 9.4L288 288l114.7 0-9.4 9.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l9.4 9.4L288 224l0-114.7 9.4 9.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-64-64z"/></svg>
             </div>
             <!-- <div class="input-group" id="input-group">
-                <label for="radio2">Bomb:</label>
-                <input type="radio" id="radio2" name="options" value="2" onclick="changeExtras(2);" >
+                <label for="checkbox3">Bomb:</label>
+                <input type="checkbox" id="checkbox3" name="options" value="3" onclick="changeExtras(3);" >
             </div> -->
         </div>
 
@@ -60,8 +65,8 @@
         <div class="grid-container" id="grid-container">
 
         </div>
-        <div class="reiniciar" onclick="reset();">
-            RESET
+        <div class="reiniciar" onclick='reset("softReset");'>
+            RESTART
         </div>
     </div>
    
