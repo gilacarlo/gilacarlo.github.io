@@ -76,8 +76,8 @@ function closeOpenConfiguration2(){
     uncheckRadio(0);
 }
 
-closeOpenConfiguration();
-closeOpenConfiguration2();
+// closeOpenConfiguration();
+// closeOpenConfiguration2();
 
 function changeExtras(checkBox){
     if(roundsPlayed != 0){
