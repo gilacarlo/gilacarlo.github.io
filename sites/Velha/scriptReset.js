@@ -11,24 +11,22 @@ inputgameMode.addEventListener('input', function() {reset("softReset"   );});
 
 let gridContainer = ``;
 function reset(condition = "hardReset"){
-    grid = [];
-    all_TotalPlaces = 0;
+
     X_totalPlaces = inputEixoX.value;
     Y_totalPlaces = inputEixoY.value;
     inARowToWin = inputquantParaGanhar.value;
     gameMode = inputgameMode.value;
     currentTurn = _X_svg;
     gameEndedTF = false;
-    ExtraroundsPlayed = 0;
     
     
-    console.table([
-        { Configuration: 'Width:', Value: X_totalPlaces},
-        { Configuration: 'Height:', Value: X_totalPlaces},
-        { Configuration: 'In a row to win:', Value: inARowToWin},
-        { Configuration: 'Game mode:', Value: gameMode}
+    // console.table([
+    //     { Configuration: 'Width:', Value: X_totalPlaces},
+    //     { Configuration: 'Height:', Value: X_totalPlaces},
+    //     { Configuration: 'In a row to win:', Value: inARowToWin},
+    //     { Configuration: 'Game mode:', Value: gameMode}
 
-    ])
+    // ])
 
     const mesenge = document.getElementById('displayMesenge');
     mesenge.style.display = "none";
@@ -42,7 +40,6 @@ function reset(condition = "hardReset"){
     document.documentElement.style.setProperty('--grid-item-color', `rgb(32, 62, 255)`);
     
     if(condition == "hardReset"){
-        console.log("fewfwef")
         X = 1, Y = 1;
         gridContainer = ``;
         for(let i = 0; i < X_totalPlaces * Y_totalPlaces; i++){
@@ -54,22 +51,35 @@ function reset(condition = "hardReset"){
                 X++
             }
         }
+        
+        ExtraroundsPlayed = 0;
+        backupgrid = [];
         Extragrid = gridContainer;
         document.getElementById('grid-container').innerHTML = gridContainer;
-    }else
-    if(condition == "softReset"){
+
+        all_TotalPlaces = 0;
+        grid = [];
+        for(let i = 0; i < X_totalPlaces * Y_totalPlaces; i++){
+            grid.push([0,0]);
+            all_TotalPlaces += 1;
+        }    
+    }else if(condition == "softReset"){
 
         if(roundsPlayed == 0){
             Extragrid = document.getElementById('grid-container').innerHTML;
+            backupgrid = Array.from(grid);
+            ExtraroundsPlayedbackup = ExtraroundsPlayed;
+            all_TotalPlacesbackup = all_TotalPlaces;
         }
         document.getElementById('grid-container').innerHTML = Extragrid;
+        grid = Array.from(backupgrid);
+        ExtraroundsPlayed = ExtraroundsPlayedbackup;
+        all_TotalPlaces = all_TotalPlacesbackup;
     }
     roundsPlayed = 0;
+    
 
-    for(let i = 0; i < X_totalPlaces * Y_totalPlaces; i++){
-        grid.push([0,[[]]]);
-        all_TotalPlaces += 1;
-    }
+    // console.log(backupgrid, grid)
     // grid[0][OBJ] = _Wall_svg;
     // document.getElementById(`grid-item[${[0,0]}]`).innerHTML = _Wall_svg;
 

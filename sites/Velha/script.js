@@ -1,13 +1,13 @@
 
-let grid = [];
-let Extragrid = []; // grid for the Extras
-let all_TotalPlaces = 0;
+let grid = [];let backupgrid = [];
+let Extragrid = ``; // grid for the Extras
+let all_TotalPlaces = 0; let all_TotalPlacesbackup = 0;
 let X_totalPlaces = 3;
 let Y_totalPlaces = 3;
 let inARowToWin = 3;
 let gameMode = "TicTacToe"; 
 let roundsPlayed = 0;
-let ExtraroundsPlayed = 0;
+let ExtraroundsPlayed = 0; let ExtraroundsPlayedbackup = 0;
 let gameEndedTF = false;
 let X = 1, Y = 1;
 let _O_svg = `<svg class="O" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 96a160 160 0 1 0 0 320 160 160 0 1 0 0-320zM448 256A224 224 0 1 1 0 256a224 224 0 1 1 448 0z"/></svg>`;
@@ -45,19 +45,22 @@ function XOdetected(XYindex){
         
         if(Extra == 0){
             roundsPlayed++;
-            if(roundsPlayed == 1){
+            if(roundsPlayed == "1"){
                 Extragrid = document.getElementById('grid-container').innerHTML;
+                backupgrid = JSON.parse(JSON.stringify(grid));
+                ExtraroundsPlayedbackup = ExtraroundsPlayed;
+                all_TotalPlacesbackup = all_TotalPlaces;
             }
-        }else
-        if(Extra == 1){
+            console.log("wfewe",ExtraroundsPlayedbackup, ExtraroundsPlayed);
+            
+        }else if(Extra == 1){
             ExtraroundsPlayed++;
         }
         
         if(gameMode == "TicTacToe" || Extra != 0){
             var pushedPosition = XYindex;
             grid[findIndexOfGrid(pushedPosition)][OBJ] = simbol;
-        }else 
-        if(gameMode == "Lig4"     ){
+        }else if(gameMode == "Lig4"     ){
             var pushedPosition = XOPushDown(XYindex);
             grid[findIndexOfGrid(pushedPosition)][OBJ] = simbol;
         }
@@ -69,7 +72,8 @@ function XOdetected(XYindex){
             if(checkIfWon(pushedPosition, currentTurn)){
                 gameEndedTF = true;
                 gameEnded(currentTurn);
-            }else{
+            }else{ 
+                console.log(roundsPlayed + ExtraroundsPlayed,all_TotalPlaces);
                 if(roundsPlayed + ExtraroundsPlayed == all_TotalPlaces){
                     gameEndedTF = true;
                     gameEnded("tied");
@@ -91,7 +95,9 @@ function XOdetected(XYindex){
         }else{
             grid[findIndexOfGrid(XYindex)][OBJ] = 0;
             document.getElementById(`grid-item[${XYindex}]`).innerHTML = ``;
+            ExtraroundsPlayed--;
         }
+        
     }
     // console.log(grid)
 }
